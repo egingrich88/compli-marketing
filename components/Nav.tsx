@@ -1,0 +1,155 @@
+"use client";
+
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import Container from "./Container";
+import Button from "./Button";
+
+const PARTNERS_URL =
+  "https://compli-platform-production.up.railway.app/marketing/become-a-partner.html";
+const LOGIN_URL = "https://compli-platform-production.up.railway.app/login";
+
+export default function Nav() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-line">
+      <Container>
+        <div className="flex items-center justify-between h-16">
+          <Link
+            href="/"
+            className="text-2xl font-bold text-navy tracking-tight"
+            onClick={() => setOpen(false)}
+          >
+            Compli
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-8">
+            <Link
+              href="/features"
+              className="text-sm font-medium text-body hover:text-navy transition-colors"
+            >
+              Features
+            </Link>
+            <Link
+              href="/pricing"
+              className="text-sm font-medium text-body hover:text-navy transition-colors"
+            >
+              Pricing
+            </Link>
+            <a
+              href={PARTNERS_URL}
+              className="text-sm font-medium text-body hover:text-navy transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              For Partners
+            </a>
+            <a
+              href={LOGIN_URL}
+              className="text-sm font-medium text-body hover:text-navy transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Log in
+            </a>
+            <Button href="/pricing" variant="primary" className="px-5 py-2.5 text-sm">
+              See Pricing
+            </Button>
+          </nav>
+
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-navy hover:bg-surface"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {open ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="4" y1="7" x2="20" y2="7" />
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="17" x2="20" y2="17" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
+      </Container>
+
+      {open && (
+        <div className="md:hidden fixed inset-x-0 top-16 bottom-0 bg-white z-40 overflow-y-auto">
+          <Container>
+            <nav className="flex flex-col gap-1 py-8">
+              <Link
+                href="/features"
+                className="text-xl font-medium text-ink py-4 border-b border-line"
+                onClick={() => setOpen(false)}
+              >
+                Features
+              </Link>
+              <Link
+                href="/pricing"
+                className="text-xl font-medium text-ink py-4 border-b border-line"
+                onClick={() => setOpen(false)}
+              >
+                Pricing
+              </Link>
+              <a
+                href={PARTNERS_URL}
+                className="text-xl font-medium text-ink py-4 border-b border-line"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                For Partners
+              </a>
+              <a
+                href={LOGIN_URL}
+                className="text-xl font-medium text-ink py-4 border-b border-line"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Log in
+              </a>
+              <div className="pt-8">
+                <Button
+                  href="/pricing"
+                  variant="primary"
+                  className="w-full"
+                >
+                  See Pricing
+                </Button>
+              </div>
+            </nav>
+          </Container>
+        </div>
+      )}
+    </header>
+  );
+}
