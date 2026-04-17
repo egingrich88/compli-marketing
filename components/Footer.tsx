@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Container from "./Container";
 
@@ -13,10 +14,13 @@ export default function Footer() {
       <Container>
         <div className="py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <div className="text-2xl font-bold tracking-tight">Compli</div>
-            <p className="mt-3 text-sm text-white/70 leading-relaxed max-w-xs">
-              Stay Compliant. Stay Protected.
-            </p>
+            <Image
+              src="/compli-logo-white.png"
+              alt="Compli"
+              width={130}
+              height={40}
+              className="h-10 w-auto"
+            />
             <p className="mt-6 text-xs text-white/50">
               &copy; {year} Compli. All rights reserved.
             </p>

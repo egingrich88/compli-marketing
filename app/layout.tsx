@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -10,10 +10,17 @@ const inter = Inter({
   display: "swap",
 });
 
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-serif",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Compli — Stay Compliant. Stay Protected.",
   description:
-    "AI-powered compliance platform for employers 5-500. 42 modules, real-time calendar, Ask Compli AI assistant.",
+    "Compliance workflow management for employers without a compliance department. 42 modules, real-time compliance calendar, and an AI assistant that handles every deadline, notice, and filing.",
 };
 
 export default function RootLayout({
@@ -22,7 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${instrumentSerif.variable} h-full`}
+    >
       <body className="min-h-screen flex flex-col antialiased bg-white text-ink">
         <Nav />
         <main className="flex-1 flex flex-col">{children}</main>

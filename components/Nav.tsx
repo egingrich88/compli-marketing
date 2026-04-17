@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Container from "./Container";
@@ -24,15 +25,23 @@ export default function Nav() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-line">
+    <header className="sticky top-0 z-50 bg-white border-b border-line">
       <Container>
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="text-2xl font-bold text-navy tracking-tight"
+            className="flex items-center"
             onClick={() => setOpen(false)}
+            aria-label="Compli home"
           >
-            Compli
+            <Image
+              src="/compli-logo-light.png"
+              alt="Compli"
+              width={140}
+              height={40}
+              priority
+              className="h-10 w-auto"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
