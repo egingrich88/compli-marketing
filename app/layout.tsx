@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,9 +32,7 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSerif.variable} h-full`}
     >
       <body className="min-h-screen flex flex-col antialiased bg-white text-ink">
-        <Nav />
-        <main className="flex-1 flex flex-col">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
