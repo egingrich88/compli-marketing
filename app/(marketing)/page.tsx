@@ -304,13 +304,13 @@ export default function Home() {
             </div>
 
             <div className="mt-10 text-sm text-white/60">
-              Questions? Email{" "}
-              <a
-                href="mailto:hello@compli.biz"
+              Questions?{" "}
+              <Link
+                href="/contact"
                 className="text-white underline hover:text-green transition-colors"
               >
-                hello@compli.biz
-              </a>
+                Get in touch
+              </Link>
             </div>
           </div>
         </Container>
