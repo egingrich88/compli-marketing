@@ -6,10 +6,6 @@ import { useState, useEffect } from "react";
 import Container from "./Container";
 import Button from "./Button";
 
-const PARTNERS_URL =
-  "https://compli-platform-production.up.railway.app/marketing/become-a-partner.html";
-const LOGIN_URL = "https://compli-platform-production.up.railway.app/login";
-
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
@@ -57,22 +53,18 @@ export default function Nav() {
             >
               Pricing
             </Link>
-            <a
-              href={PARTNERS_URL}
+            <Link
+              href="/become-a-partner"
               className="text-sm font-medium text-body hover:text-navy transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
             >
-              For Partners
-            </a>
-            <a
-              href={LOGIN_URL}
+              Become a Partner
+            </Link>
+            <Link
+              href="/login"
               className="text-sm font-medium text-body hover:text-navy transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Log in
-            </a>
+            </Link>
             <Button href="/pricing" variant="primary" className="px-5 py-2.5 text-sm">
               See Pricing
             </Button>
@@ -130,22 +122,20 @@ export default function Nav() {
               >
                 Pricing
               </Link>
-              <a
-                href={PARTNERS_URL}
+              <Link
+                href="/become-a-partner"
                 className="text-xl font-medium text-ink py-4 border-b border-line"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
               >
-                For Partners
-              </a>
-              <a
-                href={LOGIN_URL}
+                Become a Partner
+              </Link>
+              <Link
+                href="/login"
                 className="text-xl font-medium text-ink py-4 border-b border-line"
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
               >
                 Log in
-              </a>
+              </Link>
               <div className="pt-8">
                 <Button
                   href="/pricing"
