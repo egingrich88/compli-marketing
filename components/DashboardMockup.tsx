@@ -3,7 +3,7 @@ const navItems = [
   "Compliance Calendar",
   "Document Vault",
   "Ask Compli",
-  "Modules",
+  "Programs",
 ];
 
 const deadlines = [
@@ -96,7 +96,7 @@ export default function DashboardMockup() {
           <div className="grid grid-cols-2 gap-3">
             <div className="bg-white border border-line rounded-lg p-3">
               <div className="text-xs text-muted uppercase tracking-wider">
-                Modules Active
+                Programs Active
               </div>
               <div className="text-2xl font-bold text-ink">24</div>
             </div>
