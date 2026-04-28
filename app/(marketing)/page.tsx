@@ -4,9 +4,6 @@ import Button from "@/components/Button";
 import DashboardMockup from "@/components/DashboardMockup";
 import RegulationStrip from "@/components/RegulationStrip";
 
-const REGISTER_URL = "https://app.compli.biz/register";
-const PARTNERS_URL = "https://app.compli.biz/become-a-partner";
-
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="text-sm font-semibold uppercase tracking-wider text-green">
@@ -92,8 +89,7 @@ export default function Home() {
                     See pricing
                   </Button>
                   <Button
-                    href={REGISTER_URL}
-                    external
+                    href="/get-started"
                     variant="secondary"
                     className="px-8 py-4 !border-white/30 !text-white hover:!bg-white hover:!text-navy"
                   >
@@ -222,7 +218,7 @@ export default function Home() {
       <section className="bg-surface py-20 md:py-28">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <Eyebrow>For partners</Eyebrow>
+            <Eyebrow>Partners</Eyebrow>
             <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
               Built for brokers, CPAs, and consultants.
             </h2>
@@ -233,8 +229,7 @@ export default function Home() {
             </p>
             <div className="mt-10 flex justify-center">
               <Button
-                href={PARTNERS_URL}
-                external
+                href="/become-a-partner"
                 variant="primary"
                 className="px-8 py-4"
               >
@@ -263,8 +258,7 @@ export default function Home() {
                 See pricing
               </Button>
               <Button
-                href={REGISTER_URL}
-                external
+                href="/get-started"
                 variant="secondary"
                 className="px-8 py-4 !border-white/30 !text-white hover:!bg-white hover:!text-navy"
               >

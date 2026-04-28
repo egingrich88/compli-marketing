@@ -6,7 +6,7 @@ import RegulationStrip from "@/components/RegulationStrip";
 export const metadata: Metadata = {
   title: "About — Compli",
   description:
-    "Compli is a compliance platform for employers without a dedicated compliance department. Federal coverage at launch, state rollout 2026–2027.",
+    "Compli is a compliance platform for employers without a dedicated compliance team. Federal coverage at launch, state rollout 2026–2027.",
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
