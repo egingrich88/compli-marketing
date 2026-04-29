@@ -7,15 +7,16 @@
   --color-green: #2FAE66;
   --color-green-dark: #259656;
   --color-green-light: #4EC27F;
+  --color-accent: #B5471F;
   --color-ink: #0F172A;
   --color-body: #475569;
   --color-muted: #94A3B8;
   --color-line: #E2E8F0;
   --color-surface: #F8FAFC;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: var(--font-serif), "Times New Roman", serif;
+  --font-serif: var(--font-fraunces), "Times New Roman", serif;
 }
 
 html {

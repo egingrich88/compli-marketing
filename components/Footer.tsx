@@ -18,7 +18,7 @@ export default function Footer() {
               className="h-10 w-auto"
             />
             <p className="mt-4 text-sm text-white/70">
-              Compliance made manageable.
+              Stay Compliant. Stay Protected.
             </p>
           </div>
 

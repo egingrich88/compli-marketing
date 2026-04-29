@@ -246,7 +246,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto">
             <Eyebrow>Get started</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl md:text-6xl text-white leading-[1.1] tracking-tight">
-              Compliance made manageable.
+              Stay Compliant. Stay Protected.
             </h2>
             <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
               Subscribe today and start handling compliance immediately. Cancel

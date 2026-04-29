@@ -2,17 +2,17 @@ import { Fragment } from "react";
 
 const DEFAULT_REGULATIONS = [
   "ERISA",
-  "COBRA",
   "ACA",
+  "COBRA",
   "FMLA",
-  "BIPA",
-  "FLSA",
-  "OSHA",
   "HIPAA",
-  "DOT",
-  "EEO-1",
-  "ADA",
-  "PWFA",
+  "OSHA",
+  "FLSA",
+  "FCRA",
+  "EEOC",
+  "NIST AI RMF",
+  "FTC §5",
+  "NLRB",
 ];
 
 type RegulationStripProps = {

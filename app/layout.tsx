@@ -1,33 +1,34 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-serif",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://compli.biz"),
-  title: "Compli — Compliance made manageable.",
+  title: "Compli — Federal AI & Biometrics Compliance for American Employers",
   description:
-    "Compli is a compliance platform for employers without a dedicated compliance team. Every deadline, every notice, every filing — in one place.",
+    "Compli is the federal compliance platform for American employers, with AI and biometrics compliance as our flagship. Built around EEOC guidance, the NIST AI Risk Management Framework, FCRA, FTC Section 5, and federal HIPAA, ERISA, ACA, FMLA, and OSHA frameworks.",
   keywords: [
-    "employer compliance software",
-    "compliance platform",
-    "compliance calendar",
-    "ACA compliance software",
-    "BIPA compliance",
-    "OSHA compliance",
+    "AI compliance for employers",
+    "biometric compliance for employers",
+    "federal AI employment law",
+    "FCRA AI background check compliance",
+    "EEOC AI hiring compliance",
+    "NIST AI RMF compliance",
+    "employer compliance platform",
   ],
   alternates: {
     canonical: "/",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Compli — Compliance made manageable.",
+        alt: "Compli — Federal AI & Biometrics Compliance",
       },
     ],
   },
@@ -61,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${instrumentSerif.variable} h-full`}
+      className={`${geist.variable} ${fraunces.variable} h-full`}
     >
       <body className="min-h-screen flex flex-col antialiased bg-white text-ink">
         <Analytics />

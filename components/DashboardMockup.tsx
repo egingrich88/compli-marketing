@@ -1,19 +1,20 @@
 const navItems = [
   "Dashboard",
   "Compliance Calendar",
+  "AI & Biometrics",
   "Document Vault",
   "Ask Compli",
   "Programs",
 ];
 
 const deadlines = [
-  { dotClass: "bg-green", label: "Form 5500 filing", when: "14 days" },
+  { dotClass: "bg-green", label: "AI hiring tool annual audit", when: "12 days" },
   {
     dotClass: "bg-[#F59E0B]",
-    label: "ACA 1095-C distribution",
-    when: "28 days",
+    label: "Biometric consent refresh — new hires",
+    when: "21 days",
   },
-  { dotClass: "bg-green", label: "OSHA 300A posting", when: "45 days" },
+  { dotClass: "bg-green", label: "FCRA adverse action — 1 pending", when: "5 days" },
 ];
 
 export default function DashboardMockup() {
@@ -48,7 +49,7 @@ export default function DashboardMockup() {
           />
           <nav className="mt-6 space-y-1">
             {navItems.map((item, i) => {
-              const isActive = i === 0;
+              const isActive = item === "AI & Biometrics";
               return (
                 <div
                   key={item}
@@ -127,7 +128,7 @@ export default function DashboardMockup() {
               <div className="text-xs font-semibold text-ink">Ask Compli</div>
             </div>
             <div className="text-xs text-body italic leading-relaxed">
-              &ldquo;When is my Form 5500 due?&rdquo;
+              &ldquo;Does my hiring tool need an EEOC AI audit?&rdquo;
             </div>
           </div>
         </div>
