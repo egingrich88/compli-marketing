@@ -22,7 +22,7 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-line">
-      <Container>
+      <div className="px-6 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
@@ -108,7 +108,7 @@ export default function Nav() {
             </svg>
           </button>
         </div>
-      </Container>
+      </div>
 
       {open && (
         <div className="md:hidden fixed inset-x-0 top-16 bottom-0 bg-white z-40 overflow-y-auto">
