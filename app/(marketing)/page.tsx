@@ -100,7 +100,7 @@ const launchModules = [
 ];
 
 const trustSignals = [
-  "Federal-first by design — built around the frameworks that have teeth",
+  "Federal-first by design — built around the federal frameworks employers can't afford to ignore",
   "AI & Biometrics — first-mover positioning in an emerging category",
   "~30 federal programs · Launching Summer 2026",
 ];
@@ -114,12 +114,11 @@ export default function Home() {
           <div className="py-20 lg:py-28">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
               <div className="text-center md:text-left">
-                <Eyebrow>Federal compliance · AI &amp; Biometrics first</Eyebrow>
+                <Eyebrow>Federal compliance for American employers</Eyebrow>
 
-                <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
-                  Compliant today.
-                  <br />
-                  Protected tomorrow.
+                <h1 className="mt-5 font-serif text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] tracking-tight">
+                  <span className="block whitespace-nowrap">Compliant today.</span>
+                  <span className="block whitespace-nowrap">Protected tomorrow.</span>
                 </h1>
 
                 <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-xl mx-auto md:mx-0">
@@ -223,8 +222,8 @@ export default function Home() {
 
             <div className="mt-16 grid md:grid-cols-2 gap-8">
               {/* LEFT — Federal backbone */}
-              <div className="bg-surface border border-line rounded-2xl p-8 md:p-10">
-                <div className="text-xs font-semibold uppercase tracking-widest text-muted">
+              <div className="bg-white border-2 border-navy rounded-2xl p-8 md:p-10">
+                <div className="text-xs font-semibold uppercase tracking-widest text-green">
                   Federal benefits, leave &amp; labor
                 </div>
                 <h3 className="mt-3 text-2xl font-semibold text-ink leading-tight">
@@ -278,8 +277,7 @@ export default function Home() {
             <div className="mt-12 text-center">
               <p className="text-sm text-muted">
                 Federal-only at launch. Compli ships approximately 30 federal
-                compliance programs at Summer 2026. State coverage is on the
-                roadmap, not at launch.
+                compliance programs at Summer 2026.
               </p>
             </div>
           </div>

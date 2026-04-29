@@ -34,33 +34,6 @@ type RegulationStripProps = {
   categorized?: boolean;
 };
 
-function Group({
-  items,
-  textColor,
-  dotColor,
-}: {
-  items: string[];
-  textColor: string;
-  dotColor: string;
-}) {
-  return (
-    <div
-      className={`flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-widest ${textColor}`}
-    >
-      {items.map((reg, i) => (
-        <Fragment key={reg}>
-          <span>{reg}</span>
-          {i < items.length - 1 && (
-            <span className={dotColor} aria-hidden="true">
-              ·
-            </span>
-          )}
-        </Fragment>
-      ))}
-    </div>
-  );
-}
-
 export default function RegulationStrip({
   regulations = DEFAULT_REGULATIONS,
   className = "",
@@ -70,42 +43,50 @@ export default function RegulationStrip({
   const dotColor = variant === "dark" ? "text-white/30" : "text-line";
 
   if (categorized) {
-    const itemColor = variant === "dark" ? "text-white/80" : "text-body";
-    const headerColor = variant === "dark" ? "text-white/60" : "text-muted";
-    const dividerColor =
-      variant === "dark" ? "border-white/10" : "border-line";
-
     return (
-      <div className={`grid md:grid-cols-2 gap-8 md:gap-12 ${className}`}>
-        <div>
-          <p
-            className={`text-xs font-semibold uppercase tracking-widest mb-4 ${headerColor}`}
-          >
-            Federal Compliance
-          </p>
-          <Group
-            items={FEDERAL_BACKBONE}
-            textColor={itemColor}
-            dotColor={dotColor}
-          />
-        </div>
-        <div className={`md:border-l md:pl-8 lg:pl-12 ${dividerColor}`}>
-          <p
-            className={`text-xs font-semibold uppercase tracking-widest mb-4 ${headerColor}`}
-          >
-            AI &amp; Biometrics Anchors
-          </p>
-          <Group
-            items={AB_ANCHORS}
-            textColor={itemColor}
-            dotColor={dotColor}
-          />
+      <div
+        className={`bg-white/[0.03] rounded-lg py-6 md:py-8 px-6 md:px-10 ${className}`}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-6 md:gap-0">
+          {/* LEFT — Federal */}
+          <div>
+            <p className="font-serif italic text-sm text-white/60 mb-3">
+              Federal
+            </p>
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              {FEDERAL_BACKBONE.map((reg) => (
+                <span
+                  key={reg}
+                  className="text-sm font-medium text-white/85"
+                >
+                  {reg}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT — AI & Biometrics */}
+          <div className="border-t-2 border-[color:var(--color-accent)] pt-6 md:pt-0 md:border-t-0 md:border-l-2 md:border-[color:var(--color-accent)] md:pl-8 lg:pl-12">
+            <p className="font-serif italic text-sm text-white/60 mb-3">
+              AI &amp; Biometrics
+            </p>
+            <div className="flex flex-wrap gap-x-5 gap-y-2">
+              {AB_ANCHORS.map((reg) => (
+                <span
+                  key={reg}
+                  className="text-sm font-semibold text-[color:var(--color-accent)]"
+                >
+                  {reg}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
-  // Backward-compatible single-row layout (default)
+  // Backward-compatible single-row layout (default — unchanged)
   const singleRowColor =
     variant === "dark" ? "text-white/60" : "text-muted";
   return (

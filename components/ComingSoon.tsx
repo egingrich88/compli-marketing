@@ -8,6 +8,7 @@ type ComingSoonProps = {
   ctaText?: string;
   ctaHref?: string;
   launchDate?: string;
+  microcopy?: React.ReactNode;
 };
 
 export default function ComingSoon({
@@ -17,6 +18,7 @@ export default function ComingSoon({
   ctaText = "Notify me at launch",
   ctaHref = "/contact",
   launchDate = "June 2026",
+  microcopy,
 }: ComingSoonProps) {
   return (
     <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
@@ -51,6 +53,12 @@ export default function ComingSoon({
                   {ctaText}
                 </Button>
               </div>
+            )}
+
+            {microcopy && (
+              <p className="mt-4 text-xs text-white/60 text-center">
+                {microcopy}
+              </p>
             )}
           </div>
         </div>

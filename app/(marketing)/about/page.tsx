@@ -47,7 +47,7 @@ const audiences = [
   },
   {
     heading: "Federal-only at launch",
-    body: "Compli ships approximately 30 federal programs at Summer 2026 launch. State coverage is on the roadmap — when we ship state law, it'll be because we have the content, the legal review, and the monitoring infrastructure to back it. Not before.",
+    body: "Compli ships approximately 30 federal programs at Summer 2026 launch.",
   },
 ];
 
@@ -73,7 +73,7 @@ const launchModules = [
 const commitments = [
   {
     heading: "Federal first, real and defensible",
-    body: "We don't claim coverage we can't actually deliver. Federal frameworks at launch. State law when the content infrastructure is there. The platform you can rely on in litigation is the platform that says no when the answer is no.",
+    body: "We don't claim coverage we can't actually deliver. Federal frameworks at launch. The platform you can rely on in litigation is the platform that says no when the answer is no.",
   },
   {
     heading: "Productized, not consultative",
@@ -266,12 +266,6 @@ export default function AboutPage() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-xs text-white/60 leading-relaxed">
-                State-law A&amp;B modules — including biometric time clock,
-                AI hiring under state AEDT laws, and others — are on the
-                roadmap, not at launch. We won&apos;t ship state law until
-                the content infrastructure is there.
-              </p>
             </div>
           </div>
         </Container>

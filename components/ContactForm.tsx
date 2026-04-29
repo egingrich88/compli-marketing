@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Button from "@/components/Button";
 
 type InquiryType = "general" | "partnership" | "press";
@@ -228,6 +229,17 @@ export default function ContactForm() {
       <Button type="submit" variant="primary" className="w-full">
         {submitting ? "Sending..." : "Send message"}
       </Button>
+
+      <p className="mt-4 text-xs text-muted text-center">
+        By submitting, you agree to our{" "}
+        <Link
+          href="/privacy"
+          className="underline hover:text-navy transition-colors"
+        >
+          Privacy Policy
+        </Link>
+        .
+      </p>
     </form>
   );
 }
