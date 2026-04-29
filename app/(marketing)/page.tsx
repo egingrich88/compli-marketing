@@ -336,8 +336,7 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <p className="text-sm text-muted">
-              These are four of 28 federal compliance programs Compli
-              covers.
+              These are four of 33 compliance programs Compli covers.
               <Link
                 href="/features"
                 className="text-green hover:text-green-dark font-semibold ml-1"
