@@ -1,20 +1,41 @@
 const navItems = [
   "Dashboard",
   "Compliance Calendar",
-  "AI & Biometrics",
   "Document Vault",
   "Ask Compli",
   "Programs",
 ];
 
-const deadlines = [
-  { dotClass: "bg-green", label: "AI hiring tool annual audit", when: "12 days" },
+type Deadline = {
+  dotClass: string;
+  label: string;
+  qualifier: string;
+  category: "Federal" | "AI & Biometrics";
+  when: string;
+};
+
+const deadlines: Deadline[] = [
+  {
+    dotClass: "bg-green",
+    label: "ACA 1095-C filing",
+    qualifier: "IRS",
+    category: "Federal",
+    when: "12 days",
+  },
   {
     dotClass: "bg-[#F59E0B]",
-    label: "Biometric consent refresh — new hires",
+    label: "EEOC AI hiring audit",
+    qualifier: "annual",
+    category: "AI & Biometrics",
     when: "21 days",
   },
-  { dotClass: "bg-green", label: "FCRA adverse action — 1 pending", when: "5 days" },
+  {
+    dotClass: "bg-green",
+    label: "FMLA designation notice",
+    qualifier: "pending",
+    category: "Federal",
+    when: "5 days",
+  },
 ];
 
 export default function DashboardMockup() {
@@ -40,16 +61,19 @@ export default function DashboardMockup() {
       {/* Main mockup area */}
       <div className="flex bg-white">
         {/* Sidebar */}
-        <div className="w-40 bg-surface border-r border-line p-4">
+        <div className="w-44 bg-surface border-r border-line p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/compli-logo-light.png"
             alt=""
             className="h-6 w-auto"
           />
+          <p className="mt-2 text-[10px] text-muted leading-tight">
+            Stay Compliant. Stay Protected.
+          </p>
           <nav className="mt-6 space-y-1">
-            {navItems.map((item, i) => {
-              const isActive = item === "AI & Biometrics";
+            {navItems.map((item) => {
+              const isActive = item === "Dashboard";
               return (
                 <div
                   key={item}
@@ -67,11 +91,34 @@ export default function DashboardMockup() {
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-5 space-y-4">
+        <div className="flex-1 p-5 space-y-4 min-w-0">
           <h4 className="text-sm font-semibold text-ink">
             Compliance Dashboard
           </h4>
 
+          {/* Two score cards */}
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-white border border-line rounded-lg p-3">
+              <div className="text-[10px] font-semibold text-muted tracking-wider">
+                FEDERAL COMPLIANCE
+              </div>
+              <div className="mt-1 text-2xl font-bold text-green">96%</div>
+              <div className="text-[10px] text-muted mt-0.5">
+                23 programs active
+              </div>
+            </div>
+            <div className="bg-white border border-line rounded-lg p-3">
+              <div className="text-[10px] font-semibold text-muted tracking-wider">
+                AI &amp; BIOMETRICS
+              </div>
+              <div className="mt-1 text-2xl font-bold text-green">98%</div>
+              <div className="text-[10px] text-muted mt-0.5">
+                4 programs active
+              </div>
+            </div>
+          </div>
+
+          {/* Upcoming Deadlines */}
           <div className="bg-white border border-line rounded-lg p-4">
             <div className="text-xs font-semibold uppercase tracking-wider text-muted">
               Upcoming Deadlines
@@ -80,32 +127,26 @@ export default function DashboardMockup() {
               {deadlines.map((d) => (
                 <div
                   key={d.label}
-                  className="flex items-center justify-between py-2 border-b border-line last:border-0"
+                  className="flex items-center justify-between gap-3 py-2 border-b border-line last:border-0"
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
                     <span
-                      className={`w-2 h-2 rounded-full ${d.dotClass}`}
+                      className={`w-2 h-2 rounded-full flex-shrink-0 ${d.dotClass}`}
                     />
-                    <span className="text-xs text-ink">{d.label}</span>
+                    <span className="text-xs text-ink truncate">
+                      {d.label} — {d.qualifier}
+                    </span>
                   </div>
-                  <span className="text-xs text-muted">{d.when}</span>
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <span className="text-[9px] font-semibold uppercase tracking-wider text-muted whitespace-nowrap">
+                      {d.category}
+                    </span>
+                    <span className="text-xs text-muted whitespace-nowrap">
+                      {d.when}
+                    </span>
+                  </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-white border border-line rounded-lg p-3">
-              <div className="text-xs text-muted uppercase tracking-wider">
-                Programs Active
-              </div>
-              <div className="text-2xl font-bold text-ink">24</div>
-            </div>
-            <div className="bg-white border border-line rounded-lg p-3">
-              <div className="text-xs text-muted uppercase tracking-wider">
-                Compliance Score
-              </div>
-              <div className="text-2xl font-bold text-green">98%</div>
             </div>
           </div>
 
@@ -128,7 +169,7 @@ export default function DashboardMockup() {
               <div className="text-xs font-semibold text-ink">Ask Compli</div>
             </div>
             <div className="text-xs text-body italic leading-relaxed">
-              &ldquo;Does my hiring tool need an EEOC AI audit?&rdquo;
+              &ldquo;What&apos;s the ACA affordability threshold for 2026?&rdquo;
             </div>
           </div>
         </div>

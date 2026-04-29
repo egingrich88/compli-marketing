@@ -112,21 +112,21 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
         <Container>
           <div className="py-20 lg:py-28">
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-              <div className="text-center md:text-left">
+            <div className="grid lg:grid-cols-[1.6fr_1fr] gap-12 lg:gap-16 items-center">
+              <div className="text-center lg:text-left">
                 <Eyebrow>Federal compliance for American employers</Eyebrow>
 
-                <h1 className="mt-5 font-serif text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.05] tracking-tight">
+                <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-6xl xl:text-7xl text-white leading-[1.05] tracking-tight">
                   <span className="block whitespace-nowrap">Compliant today.</span>
                   <span className="block whitespace-nowrap">Protected tomorrow.</span>
                 </h1>
 
-                <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-xl mx-auto md:mx-0">
+                <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
                   Federal compliance for American employers — protecting
                   today, securing tomorrow with AI &amp; Biometric compliance.
                 </p>
 
-                <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Button
                     href="/get-started"
                     variant="primary"
@@ -143,20 +143,20 @@ export default function Home() {
                   </Button>
                 </div>
 
-                <p className="mt-5 text-xs text-white/50 max-w-xl mx-auto md:mx-0">
+                <p className="mt-5 text-xs text-white/50 max-w-xl mx-auto lg:mx-0">
                   Launching Summer 2026 · Built around EEOC, NIST AI RMF, FTC
                   §5, FCRA
                 </p>
 
-                <div className="mt-12 md:mt-14">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4 text-center md:text-left">
+                <div className="mt-12 lg:mt-14">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4 text-center">
                     Coverage areas
                   </p>
-                  <RegulationStrip categorized className="md:justify-start" />
+                  <RegulationStrip categorized />
                 </div>
               </div>
 
-              <div className="md:pl-4">
+              <div className="lg:pl-4">
                 <DashboardMockup />
               </div>
             </div>

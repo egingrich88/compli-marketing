@@ -47,7 +47,7 @@ export default function RegulationStrip({
       <div
         className={`bg-white/[0.03] rounded-lg py-6 md:py-8 px-6 md:px-10 ${className}`}
       >
-        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-6 md:gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0">
           {/* LEFT — Federal */}
           <div>
             <p className="font-serif italic text-sm text-white/60 mb-3">
@@ -57,7 +57,7 @@ export default function RegulationStrip({
               {FEDERAL_BACKBONE.map((reg) => (
                 <span
                   key={reg}
-                  className="text-sm font-medium text-white/85"
+                  className="text-sm font-medium text-white/85 whitespace-nowrap"
                 >
                   {reg}
                 </span>
@@ -74,7 +74,7 @@ export default function RegulationStrip({
               {AB_ANCHORS.map((reg) => (
                 <span
                   key={reg}
-                  className="text-sm font-semibold text-[color:var(--color-accent)]"
+                  className="text-sm font-semibold text-green whitespace-nowrap"
                 >
                   {reg}
                 </span>
