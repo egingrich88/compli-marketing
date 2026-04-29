@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import Container from "@/components/Container";
-import { getArticleBySlug, getArticleSlugs } from "@/lib/resources";
+import { getArticleBySlug, getArticleSlugs } from "@/lib/insights";
 
 type Params = { slug: string };
 
@@ -88,7 +88,7 @@ export default async function ArticlePage({
 
           <footer className="mt-16 pt-12 border-t border-line">
             <Link
-              href="/resources"
+              href="/insights"
               className="inline-flex items-center gap-2 text-sm font-semibold text-green hover:text-green-dark transition-colors"
             >
               <svg
@@ -103,7 +103,7 @@ export default async function ArticlePage({
                 <path d="m12 19-7-7 7-7" />
                 <path d="M19 12H5" />
               </svg>
-              Back to resources
+              Back to insights
             </Link>
             <p className="mt-8 text-sm text-muted">
               Questions about this topic?{" "}

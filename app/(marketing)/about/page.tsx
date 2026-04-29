@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "About Compli — The Federal AI & Biometrics Compliance Platform",
   description:
-    "Compli is the federal compliance platform for American employers, with AI & Biometrics as flagship. Built around EEOC, NIST AI RMF, FTC §5, FCRA, and the federal frameworks employers actually need.",
+    "Compli is the federal compliance platform for American employers, leading in AI & Biometrics. Built around EEOC, NIST AI RMF, FTC §5, FCRA, and the federal frameworks employers actually need.",
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -26,8 +26,8 @@ const whyCards = [
   },
   {
     number: "02",
-    title: "AI & Biometrics flagship",
-    body: "AI hiring tools. Algorithmic background checks. Biometric data lifecycles. The federal A&B work nobody else has productized for the mid-market — and the front of our platform, not a side panel.",
+    title: "Ahead on AI & Biometrics",
+    body: "AI hiring tools, algorithmic background checks, biometric data lifecycles. The federal AI & Biometrics work nobody else has productized for the mid-market — and the part of the platform we built first.",
   },
   {
     number: "03",
@@ -43,11 +43,11 @@ const audiences = [
   },
   {
     heading: "Through brokers and CPAs",
-    body: "Group health brokers, employee benefits consultants, payroll firms, and CPAs who advise mid-market employers. Co-branded portals, revenue share, and a flagship product their clients haven't seen anywhere else.",
+    body: "Group health brokers, employee benefits consultants, payroll firms, and CPAs who advise mid-market employers. Co-branded portals, revenue share, and a product their clients haven't seen anywhere else.",
   },
   {
     heading: "Federal-only at launch",
-    body: "Compli ships approximately 30 federal programs at June 24, 2026 launch. State coverage is on the roadmap — when we ship state law, it'll be because we have the content, the legal review, and the monitoring infrastructure to back it. Not before.",
+    body: "Compli ships approximately 30 federal programs at Summer 2026 launch. State coverage is on the roadmap — when we ship state law, it'll be because we have the content, the legal review, and the monitoring infrastructure to back it. Not before.",
   },
 ];
 
@@ -62,7 +62,7 @@ const backbonePrograms = [
   "Workplace Safety / OSHA",
 ];
 
-const flagshipModules = [
+const launchModules = [
   { code: "AI-3", name: "Performance Monitoring" },
   { code: "AI-4", name: "Governance & Federal Readiness" },
   { code: "CONV-2", name: "AI Background Check & FCRA" },
@@ -100,10 +100,10 @@ export default function AboutPage() {
               </h1>
               <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
                 Compli is the federal compliance platform for American
-                employers, with AI &amp; Biometrics as flagship. Built around
-                the federal frameworks with real teeth — EEOC guidance, NIST
-                AI RMF, FTC §5, FCRA, and the benefits backbone employers
-                already know.
+                employers, leading in AI &amp; Biometrics. Built around EEOC,
+                NIST AI RMF, FTC §5, FCRA — the federal frameworks employers
+                can&apos;t afford to ignore — with the federal compliance
+                backbone they&apos;ve always needed.
               </p>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   We built Compli specifically for this moment. A federal
-                  compliance platform with an AI &amp; Biometrics flagship —
+                  compliance platform leading in AI &amp; Biometrics —
                   productized, broker-distributed, and built to be in market
                   before federal AI legislation passes in 2026 or 2027.
                 </p>
@@ -206,13 +206,12 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center">
             <Eyebrow>Architecture</Eyebrow>
             <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              A federal foundation. An AI &amp; Biometrics flagship.
+              A federal foundation. Ahead on AI &amp; Biometrics.
             </h2>
             <p className="mt-6 text-lg text-body leading-relaxed">
               Compli is two things working together. The federal benefits and
               labor backbone employers already need. And the AI &amp;
-              Biometrics flagship that no one in the mid-market has
-              productized.
+              Biometrics work no one in the mid-market has productized.
             </p>
           </div>
 
@@ -245,20 +244,20 @@ export default function AboutPage() {
             {/* AI & Biometrics Suite, Federal Edition */}
             <div className="bg-navy text-white rounded-2xl p-8 md:p-10">
               <div className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                The flagship
+                Built early
               </div>
               <h3 className="mt-3 text-2xl font-semibold text-white leading-tight">
                 AI &amp; Biometrics Suite, Federal Edition
               </h3>
               <p className="mt-4 text-white/85 leading-relaxed">
-                Compli leads with the federal AI &amp; Biometrics frameworks
-                that have real enforcement teeth. EEOC AI hiring guidance.
+                Compli&apos;s AI &amp; Biometrics work covers the federal
+                frameworks driving real enforcement. EEOC AI hiring guidance.
                 FCRA applied to algorithmic screening. NIST AI RMF
                 documentation. The federal AI law expected in 2026–2027 will
                 land on a platform that&apos;s already in market.
               </p>
               <ul className="mt-6 space-y-2 text-sm text-white/90">
-                {flagshipModules.map((m) => (
+                {launchModules.map((m) => (
                   <li key={m.code} className="flex items-start gap-3">
                     <span className="font-mono text-[color:var(--color-accent)] font-semibold tracking-wide whitespace-nowrap">
                       {m.code}
@@ -313,7 +312,7 @@ export default function AboutPage() {
               Stay Compliant. Stay Protected.
             </h2>
             <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-              Federal AI &amp; Biometrics compliance launches June 24, 2026.
+              Federal AI &amp; Biometrics compliance launches Summer 2026.
               Get on the early-notification list, or talk to us about
               partnering.
             </p>

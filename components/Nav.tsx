@@ -54,6 +54,12 @@ export default function Nav() {
               Pricing
             </Link>
             <Link
+              href="/insights"
+              className="text-sm font-medium text-body hover:text-navy transition-colors"
+            >
+              Insights
+            </Link>
+            <Link
               href="/become-a-partner"
               className="text-sm font-medium text-body hover:text-navy transition-colors"
             >
@@ -121,6 +127,13 @@ export default function Nav() {
                 onClick={() => setOpen(false)}
               >
                 Pricing
+              </Link>
+              <Link
+                href="/insights"
+                className="text-xl font-medium text-ink py-4 border-b border-line"
+                onClick={() => setOpen(false)}
+              >
+                Insights
               </Link>
               <Link
                 href="/become-a-partner"

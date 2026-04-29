@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
-import { getAllArticles } from "@/lib/resources";
+import { getAllInsights } from "@/lib/insights";
 
 export const metadata: Metadata = {
-  title: "Resources — Compli",
+  title: "Insights — Compli",
   description:
-    "Plain-language compliance explainers for employers — deadlines, penalties, and what to do about them.",
+    "Federal compliance perspectives, AI & Biometrics analysis, and platform updates from the Compli team.",
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -26,8 +26,8 @@ function formatDate(date: Date): string {
   });
 }
 
-export default function ResourcesPage() {
-  const articles = getAllArticles();
+export default function InsightsPage() {
+  const articles = getAllInsights();
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function ResourcesPage() {
         <Container>
           <div className="py-24 md:py-32">
             <div className="max-w-3xl mx-auto text-center">
-              <Eyebrow>Resources</Eyebrow>
+              <Eyebrow>Insights</Eyebrow>
               <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
                 Compliance, explained.
               </h1>
@@ -84,7 +84,7 @@ export default function ResourcesPage() {
                 {articles.map((article) => (
                   <Link
                     key={article.slug}
-                    href={`/resources/${article.slug}`}
+                    href={`/insights/${article.slug}`}
                     className="group bg-white border border-line rounded-2xl p-8 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
                   >
                     <time

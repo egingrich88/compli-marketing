@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://compli.biz"),
   title: "Compli — Federal AI & Biometrics Compliance for American Employers",
   description:
-    "Compli is the federal compliance platform for American employers, with AI and biometrics compliance as our flagship. Built around EEOC guidance, the NIST AI Risk Management Framework, FCRA, FTC Section 5, and federal HIPAA, ERISA, ACA, FMLA, and OSHA frameworks.",
+    "Compli is the federal compliance platform for American employers, leading in AI & Biometrics. Built around EEOC guidance, the NIST AI Risk Management Framework, FCRA, FTC Section 5, and federal HIPAA, ERISA, ACA, FMLA, and OSHA frameworks.",
   keywords: [
     "AI compliance for employers",
     "biometric compliance for employers",

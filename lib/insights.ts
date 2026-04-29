@@ -10,7 +10,7 @@ export type Article = {
   author: string;
 };
 
-const RESOURCES_DIR = path.join(process.cwd(), "content/resources");
+const INSIGHTS_DIR = path.join(process.cwd(), "content/insights");
 const DEFAULT_AUTHOR = "The Compli Team";
 
 function parseDate(value: unknown): Date | null {
@@ -23,13 +23,13 @@ function parseDate(value: unknown): Date | null {
 }
 
 function readArticleFiles(): { slug: string; raw: string }[] {
-  if (!fs.existsSync(RESOURCES_DIR)) return [];
+  if (!fs.existsSync(INSIGHTS_DIR)) return [];
   return fs
-    .readdirSync(RESOURCES_DIR)
+    .readdirSync(INSIGHTS_DIR)
     .filter((f) => f.endsWith(".mdx"))
     .map((file) => {
       const slug = file.replace(/\.mdx$/, "");
-      const raw = fs.readFileSync(path.join(RESOURCES_DIR, file), "utf8");
+      const raw = fs.readFileSync(path.join(INSIGHTS_DIR, file), "utf8");
       return { slug, raw };
     });
 }
@@ -59,7 +59,7 @@ function articleFromFile({
   };
 }
 
-export function getAllArticles(): Article[] {
+export function getAllInsights(): Article[] {
   return readArticleFiles()
     .map(articleFromFile)
     .filter((a): a is Article => a !== null)
@@ -67,7 +67,7 @@ export function getAllArticles(): Article[] {
 }
 
 export function getArticleSlugs(): string[] {
-  return getAllArticles().map((a) => a.slug);
+  return getAllInsights().map((a) => a.slug);
 }
 
 export function getArticleBySlug(
@@ -75,7 +75,7 @@ export function getArticleBySlug(
 ): { article: Article; raw: string } | null {
   const safe = slug.replace(/[^a-z0-9-]/g, "");
   if (!safe || safe !== slug) return null;
-  const filepath = path.join(RESOURCES_DIR, `${safe}.mdx`);
+  const filepath = path.join(INSIGHTS_DIR, `${safe}.mdx`);
   if (!fs.existsSync(filepath)) return null;
   const raw = fs.readFileSync(filepath, "utf8");
   const article = articleFromFile({ slug: safe, raw });
