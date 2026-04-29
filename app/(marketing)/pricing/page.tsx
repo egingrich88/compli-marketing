@@ -4,14 +4,14 @@ import ComingSoon from "@/components/ComingSoon";
 export const metadata: Metadata = {
   title: "Pricing — Compli",
   description:
-    "Compli pricing for employers and partners. Monthly subscriptions, no long-term contracts. Full pricing available June 2026.",
+    "Compli pricing for employers and partners. Publishing ahead of the June 24, 2026 launch. Federal compliance with our flagship AI & Biometrics Suite — productized, monthly billing, no annual lock-in.",
 };
 
 export default function PricingPage() {
   return (
     <ComingSoon
       title="Pricing"
-      description="Simple monthly pricing for the full Compli platform. Detailed plans publishing at launch."
+      description="Compli pricing publishes ahead of the June 24, 2026 launch. Federal compliance with our flagship AI & Biometrics Suite — productized, monthly billing, no annual lock-in."
     />
   );
 }

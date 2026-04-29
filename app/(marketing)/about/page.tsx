@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
-import RegulationStrip from "@/components/RegulationStrip";
 
 export const metadata: Metadata = {
-  title: "About — Compli",
+  title:
+    "About Compli — The Federal AI & Biometrics Compliance Platform",
   description:
-    "Compli is a compliance platform for employers without a dedicated compliance team. Federal coverage at launch, state rollout 2026–2027.",
+    "Compli is the federal compliance platform for American employers, with AI & Biometrics as flagship. Built around EEOC, NIST AI RMF, FTC §5, FCRA, and the federal frameworks employers actually need.",
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -17,33 +18,70 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-const pillars = [
+const whyCards = [
   {
-    heading: "Built for the gap",
-    body: "Compli is designed for employers without a compliance department — not for enterprise legal teams. The product assumes you don't have a full-time compliance specialist on staff, and works that way.",
+    number: "01",
+    title: "Federal-first by design",
+    body: "We don't claim coverage we can't actually deliver. The frameworks Compli is built around — EEOC, NIST AI RMF, FTC §5, FCRA, ERISA, ACA, OSHA — are the ones with real federal teeth.",
   },
   {
-    heading: "AI-assisted, expert-grounded",
-    body: "AI handles the routine work — tracking deadlines, generating notices, flagging changes. Compliance experts shape what the platform tells you and how it tells you. The AI is the engine; the experts are the source of truth.",
+    number: "02",
+    title: "AI & Biometrics flagship",
+    body: "AI hiring tools. Algorithmic background checks. Biometric data lifecycles. The federal A&B work nobody else has productized for the mid-market — and the front of our platform, not a side panel.",
   },
   {
-    heading: "Federal coverage at launch, expanding to all states",
-    body: "Compli launches with federal compliance and three states — Michigan, Ohio, and Indiana — and rolls out additional state coverage through 2026 and 2027. Disciplined rollout, not vaporware promises.",
+    number: "03",
+    title: "Built for the mid-market",
+    body: "5 to 500 employees, federal obligations, no compliance team. Brokers and CPAs distribute it. Mid-market employers use it. The category nobody else has built for.",
   },
 ];
 
 const audiences = [
   {
-    heading: "Employers",
-    body: "Small to mid-sized businesses, roughly 5 to 500 employees, without a dedicated compliance team. The kind of company where compliance lands on the HR manager, the CFO, the operations lead — or no one in particular.",
+    heading: "Direct-to-employer",
+    body: "Small and mid-market employers without an in-house compliance function. We replace the compliance manual nobody opens with a working platform that handles the obligations as they come up.",
   },
   {
-    heading: "Brokers and consultants",
-    body: "Benefits brokers, CPAs, and HR consultants who advise employers and want a compliance backbone for their book. Compli's partner program adds co-branded portals and shared workflows so partners can deliver compliance without becoming compliance shops themselves.",
+    heading: "Through brokers and CPAs",
+    body: "Group health brokers, employee benefits consultants, payroll firms, and CPAs who advise mid-market employers. Co-branded portals, revenue share, and a flagship product their clients haven't seen anywhere else.",
   },
   {
-    heading: "Industries with high compliance exposure",
-    body: "Healthcare, manufacturing, hospitality, transportation, retail, and professional services — sectors where overlapping federal and state requirements create real risk for employers without a specialist.",
+    heading: "Federal-only at launch",
+    body: "Compli ships approximately 30 federal programs at June 24, 2026 launch. State coverage is on the roadmap — when we ship state law, it'll be because we have the content, the legal review, and the monitoring infrastructure to back it. Not before.",
+  },
+];
+
+const backbonePrograms = [
+  "SPD Builder",
+  "POP Plan Builder",
+  "ICHRA / QSEHRA / FSA",
+  "COBRA tracking",
+  "ACA 1094/1095 reporting",
+  "FMLA tracking",
+  "Form 5500 filings",
+  "Workplace Safety / OSHA",
+];
+
+const flagshipModules = [
+  { code: "AI-3", name: "Performance Monitoring" },
+  { code: "AI-4", name: "Governance & Federal Readiness" },
+  { code: "CONV-2", name: "AI Background Check & FCRA" },
+  { code: "CONV-3", name: "Emerging Federal AI Preparation" },
+  { code: "BIO-3", name: "Biometric Data Lifecycle (Federal Scope)" },
+];
+
+const commitments = [
+  {
+    heading: "Federal first, real and defensible",
+    body: "We don't claim coverage we can't actually deliver. Federal frameworks at launch. State law when the content infrastructure is there. The platform you can rely on in litigation is the platform that says no when the answer is no.",
+  },
+  {
+    heading: "Productized, not consultative",
+    body: "Compliance documentation as software output. Deadlines as scheduled work. Notices as generated artifacts. We're not selling you advisory hours — we're selling you a platform that does the work.",
+  },
+  {
+    heading: "Built with brokers, for the mid-market",
+    body: "Brokers, CPAs, and consultants are the distribution. Mid-market employers are the customer. We're aligned with both, designed for both, and competitive only against compliance vendors who don't take either seriously.",
   },
 ];
 
@@ -54,128 +92,96 @@ export default function AboutPage() {
       <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
         <Container>
           <div className="py-24 md:py-32">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center">
               <Eyebrow>About Compli</Eyebrow>
               <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
-                Compliance made manageable.
+                We&apos;re building the federal compliance platform American
+                employers actually need.
               </h1>
-              <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed">
-                Compli is a software platform — not a consulting firm — for
-                employers who know compliance matters but don&apos;t have a
-                compliance department to run it.
+              <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+                Compli is the federal compliance platform for American
+                employers, with AI &amp; Biometrics as flagship. Built around
+                the federal frameworks with real teeth — EEOC guidance, NIST
+                AI RMF, FTC §5, FCRA, and the benefits backbone employers
+                already know.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* WHY COMPLI EXISTS */}
+      {/* WHY WE BUILT THIS */}
       <section className="bg-white py-20 md:py-28">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <Eyebrow>Why we built this</Eyebrow>
-            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              The middle is where compliance breaks.
-            </h2>
-            <div className="mt-8 space-y-5 text-lg text-body leading-relaxed">
-              <p>
-                Most employers without a dedicated compliance department are
-                flying blind on dozens of overlapping federal and state
-                requirements. Form 5500 deadlines, ACA filings, BIPA
-                acknowledgments, OSHA postings, FMLA notices — the list keeps
-                growing. Penalties stack up silently. By the time someone
-                catches a missed obligation, it&apos;s usually a fine in the
-                mail.
-              </p>
-              <p>
-                The existing options are narrow. Hire an outside compliance
-                consultant — expensive, and slow to scale. Bolt a generic HR
-                tool onto your stack — light on real compliance depth.
-                Maintain it yourself in spreadsheets — fragile, and dependent
-                on whoever set them up.
-              </p>
-              <p>
-                Compli is built specifically for the employer in the middle:
-                someone who takes compliance seriously, but doesn&apos;t have
-                a compliance team to run it. The platform does the routine
-                work, surfaces what matters, and stays out of your way the
-                rest of the time.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* HOW COMPLI IS DIFFERENT */}
-      <section className="bg-surface py-20 md:py-28">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <Eyebrow>Our approach</Eyebrow>
-            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              Three principles.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8">
-            {pillars.map((p) => (
-              <div
-                key={p.heading}
-                className="bg-white border border-line rounded-2xl p-8"
-              >
-                <h3 className="text-xl font-semibold text-ink leading-tight">
-                  {p.heading}
-                </h3>
-                <p className="mt-4 text-body leading-relaxed">{p.body}</p>
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+            <div>
+              <Eyebrow>Origin</Eyebrow>
+              <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
+                Mid-market employers were the most exposed and the least
+                served.
+              </h2>
+              <div className="mt-8 space-y-5 text-lg text-body leading-relaxed">
+                <p>
+                  Federal compliance has always been complex for the
+                  mid-market. Employers with 5–500 employees carry the same
+                  federal obligations as Fortune 500 companies — ERISA, ACA,
+                  COBRA, FMLA, OSHA, FCRA — without the in-house compliance
+                  teams to handle them. They rely on brokers, CPAs, and
+                  consultants who do their best, but the work was never
+                  productized.
+                </p>
+                <p>
+                  Then AI and biometrics changed the stakes. EEOC&apos;s
+                  2024–2028 strategic enforcement plan named AI hiring tools
+                  as a priority. FCRA penalties are now being applied to
+                  algorithmic background checks. Class-action settlements
+                  over biometric exposure run into the hundreds of millions.
+                  The federal frameworks employers were ignoring became the
+                  federal frameworks they couldn&apos;t afford to.
+                </p>
+                <p>
+                  We built Compli specifically for this moment. A federal
+                  compliance platform with an AI &amp; Biometrics flagship —
+                  productized, broker-distributed, and built to be in market
+                  before federal AI legislation passes in 2026 or 2027.
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
 
-          <div className="mt-16">
-            <p className="text-xs font-semibold uppercase tracking-widest text-muted text-center mb-4">
-              Coverage areas
-            </p>
-            <RegulationStrip variant="light" />
-          </div>
-        </Container>
-      </section>
-
-      {/* WHAT'S IN SCOPE */}
-      <section className="bg-white py-20 md:py-28">
-        <Container>
-          <div className="max-w-3xl mx-auto">
-            <Eyebrow>What Compli covers</Eyebrow>
-            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              42 programs. Three suites. Built for what employers actually
-              face.
-            </h2>
-            <div className="mt-8 space-y-5 text-lg text-body leading-relaxed">
-              <p>
-                Compli covers 42 distinct compliance programs, organized into
-                three suites that span the work most employers face — benefits
-                administration, employment regulations, workplace safety,
-                privacy and biometric obligations, and the documentation that
-                ties them together.
-              </p>
-              <p>
-                Federal coverage is live at the June 24, 2026 launch. State
-                coverage begins with Michigan, Ohio, and Indiana at launch,
-                with additional states rolling out through 2026 and 2027.
-                We&apos;d rather ship a state when it&apos;s done than promise
-                fifty up front.
-              </p>
+            <div className="space-y-4">
+              {whyCards.map((c) => (
+                <div
+                  key={c.number}
+                  className="bg-surface border-l-4 border-[color:var(--color-accent)] pl-6 py-5 rounded-r-lg"
+                >
+                  <div className="text-xs font-semibold tracking-widest text-[color:var(--color-accent)]">
+                    {c.number}
+                  </div>
+                  <h3 className="mt-1 text-lg font-semibold text-ink leading-tight">
+                    {c.title}
+                  </h3>
+                  <p className="mt-2 text-body leading-relaxed">{c.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* WHO IT'S FOR */}
+      {/* WHO WE SERVE */}
       <section className="bg-surface py-20 md:py-28">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <Eyebrow>Who Compli serves</Eyebrow>
+            <Eyebrow>Who we serve</Eyebrow>
             <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              Built for the people closest to the work.
+              Employers with federal obligations and no compliance team to
+              handle them.
             </h2>
+            <p className="mt-6 text-lg text-body leading-relaxed">
+              American employers from 5 to 500 employees carry full federal
+              compliance obligations. Compli is built for that gap — and for
+              the partners who advise them.
+            </p>
           </div>
 
           <div className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -194,29 +200,149 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="bg-white py-24 md:py-32">
+      {/* WHAT COMPLI IS — ARCHITECTURE */}
+      <section className="bg-white py-20 md:py-28">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <Eyebrow>Get started</Eyebrow>
+            <Eyebrow>Architecture</Eyebrow>
             <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              See what Compli covers — or partner with us.
+              A federal foundation. An AI &amp; Biometrics flagship.
             </h2>
             <p className="mt-6 text-lg text-body leading-relaxed">
-              The full platform opens June 24, 2026. Until then, explore what
-              we&apos;re building or talk to us about partnering.
+              Compli is two things working together. The federal benefits and
+              labor backbone employers already need. And the AI &amp;
+              Biometrics flagship that no one in the mid-market has
+              productized.
             </p>
+          </div>
+
+          <div className="mt-16 grid md:grid-cols-2 gap-8">
+            {/* Federal benefits and labor backbone */}
+            <div className="bg-surface border border-line rounded-2xl p-8 md:p-10">
+              <div className="text-xs font-semibold uppercase tracking-widest text-muted">
+                The reliable foundation
+              </div>
+              <h3 className="mt-3 text-2xl font-semibold text-ink leading-tight">
+                Federal benefits and labor backbone
+              </h3>
+              <p className="mt-4 text-body leading-relaxed">
+                ERISA, ACA, COBRA, FMLA, HIPAA, OSHA, FLSA, FCRA. Form 5500
+                filings, Summary Plan Descriptions, COBRA election windows,
+                FMLA tracking, ACA 1094/1095 reporting. The federal
+                regulatory work that mid-market employers have always needed
+                and rarely had a real platform for.
+              </p>
+              <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-body">
+                {backbonePrograms.map((p) => (
+                  <li key={p} className="flex items-start gap-2">
+                    <span className="text-green mt-1.5 leading-none">·</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* AI & Biometrics Suite, Federal Edition */}
+            <div className="bg-navy text-white rounded-2xl p-8 md:p-10">
+              <div className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                The flagship
+              </div>
+              <h3 className="mt-3 text-2xl font-semibold text-white leading-tight">
+                AI &amp; Biometrics Suite, Federal Edition
+              </h3>
+              <p className="mt-4 text-white/85 leading-relaxed">
+                Compli leads with the federal AI &amp; Biometrics frameworks
+                that have real enforcement teeth. EEOC AI hiring guidance.
+                FCRA applied to algorithmic screening. NIST AI RMF
+                documentation. The federal AI law expected in 2026–2027 will
+                land on a platform that&apos;s already in market.
+              </p>
+              <ul className="mt-6 space-y-2 text-sm text-white/90">
+                {flagshipModules.map((m) => (
+                  <li key={m.code} className="flex items-start gap-3">
+                    <span className="font-mono text-[color:var(--color-accent)] font-semibold tracking-wide whitespace-nowrap">
+                      {m.code}
+                    </span>
+                    <span>— {m.name}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-xs text-white/60 leading-relaxed">
+                State-law A&amp;B modules — including biometric time clock,
+                AI hiring under state AEDT laws, and others — are on the
+                roadmap, not at launch. We won&apos;t ship state law until
+                the content infrastructure is there.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* HOW WE WORK / COMMITMENTS */}
+      <section className="bg-surface py-20 md:py-28">
+        <Container>
+          <div className="max-w-3xl mx-auto text-center">
+            <Eyebrow>How we work</Eyebrow>
+            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
+              Three commitments.
+            </h2>
+          </div>
+
+          <div className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8">
+            {commitments.map((c) => (
+              <div
+                key={c.heading}
+                className="bg-white border border-line rounded-2xl p-8"
+              >
+                <h3 className="text-xl font-semibold text-ink leading-tight">
+                  {c.heading}
+                </h3>
+                <p className="mt-4 text-body leading-relaxed">{c.body}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark py-20 md:py-28 overflow-hidden">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto">
+            <Eyebrow>Get started</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl md:text-6xl text-white leading-[1.1] tracking-tight">
+              Stay Compliant. Stay Protected.
+            </h2>
+            <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
+              Federal AI &amp; Biometrics compliance launches June 24, 2026.
+              Get on the early-notification list, or talk to us about
+              partnering.
+            </p>
+
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/features" variant="primary" className="px-8 py-4">
-                See the platform
+              <Button
+                href="/get-started"
+                variant="primary"
+                className="px-8 py-4"
+              >
+                Get notified at launch
               </Button>
               <Button
                 href="/become-a-partner"
                 variant="secondary"
-                className="px-8 py-4"
+                className="px-8 py-4 !border-white/30 !text-white hover:!bg-white hover:!text-navy"
               >
                 Become a partner
               </Button>
+            </div>
+
+            <div className="mt-10 text-sm text-white/60">
+              Questions?{" "}
+              <Link
+                href="/contact"
+                className="text-white underline hover:text-green transition-colors"
+              >
+                Get in touch
+              </Link>
             </div>
           </div>
         </Container>

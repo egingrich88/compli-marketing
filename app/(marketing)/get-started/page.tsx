@@ -12,7 +12,7 @@ export default function GetStartedPage() {
     <ComingSoon
       eyebrow="Get started"
       title="Subscribe to Compli"
-      description="Compli subscriptions open at the June 24, 2026 launch. Tap below to get notified the moment it goes live."
+      description="Federal AI & Biometrics compliance launches June 24, 2026. Tap below to get on the early-notification list."
       ctaText="Get notified"
     />
   );
