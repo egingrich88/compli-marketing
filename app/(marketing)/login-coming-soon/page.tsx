@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: "Log in — Compli",
   description:
     "Compli launches Summer 2026. Get notified when login goes live.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function LoginComingSoonPage() {

@@ -8,6 +8,14 @@ export const metadata: Metadata = {
   title: "Insights — Compli",
   description:
     "Federal compliance perspectives, AI & Biometrics analysis, and platform updates from the Compli team.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {

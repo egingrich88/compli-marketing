@@ -6,6 +6,14 @@ export const metadata: Metadata = {
   title: "Get started — Compli",
   description:
     "Compli subscriptions open Summer 2026. Sign up for early notification.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function GetStartedPage() {

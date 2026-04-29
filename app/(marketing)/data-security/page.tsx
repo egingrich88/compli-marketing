@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   title: "Data Security — Compli",
   description:
     "How Compli protects employer compliance data. Full security posture publishing prior to June 2026 launch.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function DataSecurityPage() {

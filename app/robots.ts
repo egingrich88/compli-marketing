@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://compli.biz/sitemap.xml",
+    host: "https://compli.biz",
   };
 }

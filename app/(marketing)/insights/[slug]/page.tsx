@@ -18,12 +18,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const found = getArticleBySlug(slug);
+  const robots = {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  };
   if (!found) {
-    return { title: "Article not found — Compli" };
+    return { title: "Article not found — Compli", robots };
   }
   return {
     title: `${found.article.title} — Compli`,
     description: found.article.description,
+    robots,
   };
 }
 

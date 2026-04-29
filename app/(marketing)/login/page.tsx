@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   title: "Sign in — Compli",
   description:
     "Sign in to your Compli account. Public access begins June 2026.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function LoginPage() {
