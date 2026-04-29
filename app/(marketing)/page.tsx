@@ -352,22 +352,25 @@ export default function Home() {
       {/* AI ASSISTANT */}
       <section className="bg-white py-16 lg:py-20">
         <Container>
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="w-12 h-0.5 bg-green mx-auto mb-6" />
+            <Eyebrow>Built-in expertise</Eyebrow>
+            <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
+              Ask Compli.
+              <br />
+              Get answers.
+            </h2>
+            <p className="mt-6 text-lg lg:text-xl text-body leading-relaxed">
+              Compli&apos;s AI assistant answers compliance questions 24/7 —
+              does my hiring tool need an EEOC AI audit, what does FCRA
+              require for AI background checks, am I building NIST AI RMF
+              documentation correctly — without calling a lawyer or guessing.
+            </p>
+          </div>
+
+          <div className="mt-16 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <div className="w-12 h-0.5 bg-green mb-6" />
-              <Eyebrow>Built-in expertise</Eyebrow>
-              <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-                Ask Compli.
-                <br />
-                Get answers.
-              </h2>
-              <p className="mt-6 text-lg lg:text-xl text-body leading-relaxed">
-                Compli&apos;s AI assistant answers compliance questions 24/7 —
-                does my hiring tool need an EEOC AI audit, what does FCRA
-                require for AI background checks, am I building NIST AI RMF
-                documentation correctly — without calling a lawyer or guessing.
-              </p>
-              <p className="mt-4 text-lg text-body leading-relaxed">
+              <p className="text-lg text-body leading-relaxed">
                 Trained on your specific configuration: your headcount, your
                 benefits, your states, your deadlines.
               </p>
