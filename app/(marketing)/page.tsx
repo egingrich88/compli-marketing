@@ -12,6 +12,30 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
+type Pillar = {
+  number: string;
+  title: string;
+  body: string;
+};
+
+const pillars: Pillar[] = [
+  {
+    number: "01",
+    title: "The category is open",
+    body: "No dominant competitor exists in mid-market AI & Biometrics employer compliance. Enterprise AI governance vendors serve the Fortune 500. Generic HR compliance platforms have thin AI content. State-specific biometric vendors are fragmented. Compli is the productized, broker-distributed answer for the mid-market.",
+  },
+  {
+    number: "02",
+    title: "The clock is ticking",
+    body: "Federal AI employment legislation is advancing — the No Robot Bosses Act, EEOC's 2024–2028 strategic enforcement plan, accelerating NIST AI RMF adoption. When federal law passes in 2026 or 2027, every compliance platform will scramble to catch up. Compli will already be in market with subscribers, content, and documented workflows.",
+  },
+  {
+    number: "03",
+    title: "The exposure is real",
+    body: "Class-action settlements like the BNSF $75M and Facebook $650M cases have driven employer awareness of biometric exposure. EEOC enforcement actions against AI hiring tools — Workday and iTutorGroup among them — signal where the federal teeth are. Mid-market employers who didn't know they had a problem in 2024 know they have one now.",
+  },
+];
+
 type CaseStudy = {
   reg: string;
   jurisdiction: string;
@@ -23,43 +47,43 @@ type CaseStudy = {
 
 const caseStudies: CaseStudy[] = [
   {
-    reg: "ERISA",
+    reg: "EEOC + Title VII",
     jurisdiction: "Federal",
-    title: "Form 5500 filing missed?",
+    title: "AI hiring tool screening out protected applicants?",
+    amount: "$365K",
+    amountSuffix: "iTutorGroup settlement (2023)",
+    body: "EEOC's 2024–2028 strategic enforcement plan named AI hiring tools as a priority. Compli generates EEOC-aligned audit documentation, tracks vendor disclosures, and maintains the four-fifths rule analysis you'll need if challenged.",
+  },
+  {
+    reg: "FCRA §1681",
+    jurisdiction: "Federal",
+    title: "AI background check without proper adverse action notice?",
+    amount: "$1,000+",
+    amountSuffix: "per violation, plus class-action exposure",
+    body: "FCRA applies to algorithmic screening as much as traditional background checks. Compli generates pre-adverse and adverse action notices, tracks the five-day window, and maintains the human-review documentation FCRA requires.",
+  },
+  {
+    reg: "NIST AI RMF",
+    jurisdiction: "Federal framework",
+    title: "No documented AI governance program?",
+    amount: "Foundational",
+    amountSuffix: "for any federal AI litigation defense",
+    body: "The NIST AI Risk Management Framework is voluntary today and the de facto compliance standard tomorrow. Compli builds the governance documentation — risk identification, mitigation logs, vendor assessments — that becomes your federal defense when AI legislation passes.",
+  },
+  {
+    reg: "ERISA + IRC",
+    jurisdiction: "Federal",
+    title: "Form 5500 missed or filed late?",
     amount: "$250",
     amountSuffix: "per day, up to $150,000",
-    body: "Every year, employers with group health plans or 100+ participants must file Form 5500. Compli tracks the deadline, prepares the filing, and reminds you well before the 7-month deadline.",
-  },
-  {
-    reg: "ACA",
-    jurisdiction: "Federal",
-    title: "1094/1095 forms delivered late?",
-    amount: "$310",
-    amountSuffix: "per form, annually",
-    body: "Applicable Large Employers must furnish 1095-C to every employee and file 1094-C with the IRS. Compli generates forms, tracks distribution, and submits on your behalf.",
-  },
-  {
-    reg: "BIPA",
-    jurisdiction: "Illinois",
-    title: "Biometric data collected without consent?",
-    amount: "$1,000–$5,000",
-    amountSuffix: "per violation",
-    body: "Fingerprint time clocks, voiceprints, or facial recognition trigger BIPA. Compli generates consent forms, tracks acknowledgments, and maintains the audit trail.",
-  },
-  {
-    reg: "OSHA",
-    jurisdiction: "Federal",
-    title: "Form 300A not posted on February 1?",
-    amount: "$16,131",
-    amountSuffix: "per violation (2026)",
-    body: "Most employers with 11+ employees must post the annual injury summary February 1 through April 30. Compli auto-generates it from your log and sends reminders.",
+    body: "Beyond A&B flagship, Compli's federal benefits backbone covers Form 5500, SPDs, COBRA, ACA filings, FMLA, and the federal regulatory work that keeps benefits programs compliant. The reliable foundation under the flagship.",
   },
 ];
 
 const trustSignals = [
-  "Built by compliance experts",
-  "Continuously updated as regulations change",
-  "42 programs · federal coverage at launch · state coverage rolling out 2026–2027",
+  "Federal-first by design — built around the frameworks that have teeth",
+  "AI & Biometrics flagship — first-mover positioning in an emerging category",
+  "~30 federal programs · Launching June 24, 2026",
 ];
 
 export default function Home() {
@@ -71,35 +95,41 @@ export default function Home() {
           <div className="py-20 lg:py-28">
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
               <div className="text-center md:text-left">
-                <Eyebrow>Compliance platform for employers</Eyebrow>
+                <Eyebrow>Federal compliance · AI &amp; Biometrics first</Eyebrow>
 
                 <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
-                  Stay Compliant.
+                  Federal compliance.
                   <br />
-                  Stay Protected.
+                  AI &amp; Biometrics first.
                 </h1>
 
                 <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-xl mx-auto md:mx-0">
-                  A complete compliance solution. Every deadline, every notice,
-                  every filing — handled.
+                  Compli is the federal compliance platform for American
+                  employers — built around EEOC, NIST AI RMF, FTC §5, FCRA, and
+                  the federal frameworks with real teeth. Our flagship AI
+                  &amp; Biometrics Suite leads the way.
                 </p>
 
                 <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                  <Button href="/pricing" variant="primary" className="px-8 py-4">
-                    See pricing
-                  </Button>
                   <Button
                     href="/get-started"
+                    variant="primary"
+                    className="px-8 py-4"
+                  >
+                    Get notified at launch
+                  </Button>
+                  <Button
+                    href="/features"
                     variant="secondary"
                     className="px-8 py-4 !border-white/30 !text-white hover:!bg-white hover:!text-navy"
                   >
-                    Start your subscription
+                    See what we cover
                   </Button>
                 </div>
 
                 <p className="mt-5 text-xs text-white/50 max-w-xl mx-auto md:mx-0">
-                  Paid monthly · cancel any time · credit card required at
-                  signup
+                  Launching June 24, 2026 · Built around EEOC, NIST AI RMF, FTC
+                  §5, FCRA
                 </p>
 
                 <div className="mt-12 md:mt-14">
@@ -118,19 +148,61 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* REGULATION-ANCHORED CASE STUDIES */}
+      {/* WHY A&B, WHY NOW */}
+      <section className="bg-white py-20 md:py-28">
+        <Container>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto">
+              <Eyebrow>Why now</Eyebrow>
+              <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
+                AI &amp; Biometrics is the next decade&apos;s compliance
+                battleground.
+              </h2>
+              <p className="mt-6 text-lg text-body leading-relaxed">
+                Federal AI employment legislation is on the horizon for 2026
+                and 2027. EEOC enforcement actions and class-action settlements
+                are already shaping the playing field. Mid-market American
+                employers are the most exposed — they carry the obligations of
+                large employers without the compliance teams that handle them.
+                Compli is built specifically for this category.
+              </p>
+            </div>
+
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {pillars.map((p) => (
+                <div
+                  key={p.number}
+                  className="bg-white border border-line rounded-2xl p-8"
+                >
+                  <div className="text-sm font-semibold tracking-widest text-[color:var(--color-accent)]">
+                    {p.number}
+                  </div>
+                  <h3 className="mt-4 text-xl font-semibold text-ink leading-tight">
+                    {p.title}
+                  </h3>
+                  <p className="mt-4 text-body leading-relaxed">{p.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* CASE STUDIES */}
       <section className="bg-surface py-20 md:py-28">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <Eyebrow>The cost of non-compliance</Eyebrow>
+            <Eyebrow>The cost of getting it wrong</Eyebrow>
             <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              The penalties are real.
-              <br />
-              Compli handles them so you don&apos;t have to.
+              The penalties are federal. The frameworks are real. Compli
+              handles them.
             </h2>
             <p className="mt-5 text-lg text-body leading-relaxed">
-              Real regulations. Real deadlines. Real consequences — all tracked
-              automatically in one platform.
+              From EEOC enforcement against AI hiring tools, to FCRA penalties
+              on algorithmic screening, to ERISA fines on missed Form 5500
+              filings — federal compliance exposure has teeth. Compli handles
+              the documentation, deadlines, and defenses across both flagship
+              A&amp;B and the benefits backbone.
             </p>
           </div>
 
@@ -162,24 +234,25 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <p className="text-sm text-muted">
-              These are four of 42 programs Compli handles.
+              These are four of approximately 30 federal programs Compli
+              handles, with our AI &amp; Biometrics Suite at the flagship.
               <Link
                 href="/features"
                 className="text-green hover:text-green-dark font-semibold ml-1"
               >
-                See the full list →
+                See what we cover →
               </Link>
             </p>
           </div>
         </Container>
       </section>
 
-      {/* AI ASSISTANT VALUE PROP */}
+      {/* AI ASSISTANT */}
       <section className="bg-white py-20 md:py-28">
         <Container>
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <Eyebrow>Always-on assistant</Eyebrow>
+              <Eyebrow>Built-in expertise</Eyebrow>
               <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
                 Ask Compli.
                 <br />
@@ -187,8 +260,9 @@ export default function Home() {
               </h2>
               <p className="mt-6 text-lg text-body leading-relaxed">
                 Compli&apos;s AI assistant answers compliance questions 24/7 —
-                when&apos;s my Form 5500 due, who needs a 1095-C, do I owe BIPA
-                notice — without calling a lawyer or guessing.
+                does my hiring tool need an EEOC AI audit, what does FCRA
+                require for AI background checks, am I building NIST AI RMF
+                documentation correctly — without calling a lawyer or guessing.
               </p>
               <p className="mt-4 text-lg text-body leading-relaxed">
                 Trained on your specific configuration: your headcount, your
@@ -199,14 +273,17 @@ export default function Home() {
             <div className="bg-surface border border-line rounded-2xl p-8 space-y-4">
               <div className="bg-white border border-line rounded-xl px-5 py-4">
                 <p className="text-sm text-muted mb-1">You</p>
-                <p className="text-ink">When is my Form 5500 due?</p>
+                <p className="text-ink">
+                  Does my hiring tool need an EEOC AI audit?
+                </p>
               </div>
               <div className="bg-navy text-white rounded-xl px-5 py-4">
                 <p className="text-sm text-white/60 mb-1">Compli</p>
                 <p>
-                  Your 2025 Form 5500 is due July 31, 2026. I&apos;ve added it
-                  to your calendar with a 30-day reminder. Want me to start the
-                  filing?
+                  Likely yes. Your applicant volume crosses the four-fifths
+                  threshold for adverse impact analysis. I&apos;ve drafted the
+                  audit framework using NIST AI RMF and queued the vendor
+                  disclosure request. Ready to send?
                 </p>
               </div>
             </div>
@@ -223,9 +300,10 @@ export default function Home() {
               Built for brokers, CPAs, and consultants.
             </h2>
             <p className="mt-6 text-lg text-body leading-relaxed">
-              If you advise employers, Compli gives your book a compliance
-              backbone. Co-branded portals, revenue share, and a partner team
-              that helps you onboard.
+              If you advise employers, Compli gives your book a federal
+              compliance backbone with an AI &amp; Biometrics flagship that no
+              one else in the market has productized. Co-branded portals,
+              revenue share, and a partner team that helps you onboard.
             </p>
             <div className="mt-10 flex justify-center">
               <Button
@@ -249,20 +327,25 @@ export default function Home() {
               Stay Compliant. Stay Protected.
             </h2>
             <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-              Subscribe today and start handling compliance immediately. Cancel
-              any time.
+              Federal AI &amp; Biometrics compliance launches June 24, 2026.
+              Get on the early-notification list, or talk to us about
+              partnering.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/pricing" variant="primary" className="px-8 py-4">
-                See pricing
-              </Button>
               <Button
                 href="/get-started"
+                variant="primary"
+                className="px-8 py-4"
+              >
+                Get notified at launch
+              </Button>
+              <Button
+                href="/become-a-partner"
                 variant="secondary"
                 className="px-8 py-4 !border-white/30 !text-white hover:!bg-white hover:!text-navy"
               >
-                Start your subscription
+                Become a partner
               </Button>
             </div>
 
