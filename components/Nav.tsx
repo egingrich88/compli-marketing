@@ -65,14 +65,8 @@ export default function Nav() {
             >
               Become a Partner
             </Link>
-            <Link
-              href="/login"
-              className="text-sm font-medium text-body hover:text-navy transition-colors"
-            >
+            <Button href="/login-coming-soon" variant="primary" className="px-5 py-2.5 text-sm">
               Log in
-            </Link>
-            <Button href="/pricing" variant="primary" className="px-5 py-2.5 text-sm">
-              See Pricing
             </Button>
           </nav>
 
@@ -142,20 +136,13 @@ export default function Nav() {
               >
                 Become a Partner
               </Link>
-              <Link
-                href="/login"
-                className="text-xl font-medium text-ink py-4 border-b border-line"
-                onClick={() => setOpen(false)}
-              >
-                Log in
-              </Link>
               <div className="pt-8">
                 <Button
-                  href="/pricing"
+                  href="/login-coming-soon"
                   variant="primary"
                   className="w-full"
                 >
-                  See Pricing
+                  Log in
                 </Button>
               </div>
             </nav>
