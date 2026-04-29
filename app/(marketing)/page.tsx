@@ -102,7 +102,7 @@ const launchModules = [
 const trustSignals = [
   "Federal-first by design — built around the federal frameworks employers can't afford to ignore",
   "AI & Biometrics — first-mover positioning in an emerging category",
-  "~30 federal programs · Launching Summer 2026",
+  "33 federal programs · Launching Summer 2026",
 ];
 
 export default function Home() {
@@ -278,8 +278,8 @@ export default function Home() {
 
             <div className="mt-12 text-center">
               <p className="text-sm text-muted">
-                Federal-only at launch. Compli ships approximately 30 federal
-                compliance programs at Summer 2026.
+                Federal-only at launch. Compli ships 28 federal compliance
+                programs and 5 AI &amp; Biometrics programs at Summer 2026.
               </p>
             </div>
           </div>
@@ -336,8 +336,8 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <p className="text-sm text-muted">
-              These are four of approximately 30 federal compliance programs
-              Compli covers.
+              These are four of 28 federal compliance programs Compli
+              covers.
               <Link
                 href="/features"
                 className="text-green hover:text-green-dark font-semibold ml-1"

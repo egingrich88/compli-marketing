@@ -47,7 +47,7 @@ const audiences = [
   },
   {
     heading: "Federal-only at launch",
-    body: "Compli ships approximately 30 federal programs at Summer 2026 launch.",
+    body: "Compli ships 28 federal compliance programs and 5 AI & Biometrics programs at Summer 2026 launch.",
   },
 ];
 
