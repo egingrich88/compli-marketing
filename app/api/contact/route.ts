@@ -19,7 +19,7 @@ const INQUIRY_LABELS: Record<InquiryType, string> = {
   press: "Press",
 };
 
-const FROM_ADDRESS = "Compli Contact <onboarding@resend.dev>";
+const FROM_ADDRESS = "Compli <noreply@compli.biz>";
 const TO_ADDRESS = "erica@compli.biz";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
