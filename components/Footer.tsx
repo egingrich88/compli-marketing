@@ -124,7 +124,7 @@ export default function Footer() {
             &copy; {year} Compli, LLC. All rights reserved.
           </p>
           <Link
-            href="/login"
+            href="/login-coming-soon"
             className="text-xs text-white/50 hover:text-green transition-colors"
           >
             Log in

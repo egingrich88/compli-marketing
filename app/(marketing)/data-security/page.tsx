@@ -4,7 +4,7 @@ import ComingSoon from "@/components/ComingSoon";
 export const metadata: Metadata = {
   title: "Data Security — Compli",
   description:
-    "How Compli protects employer compliance data. Full security posture publishing prior to June 2026 launch.",
+    "How Compli protects employer compliance data. Full security posture publishing prior to Summer 2026 launch.",
   robots: {
     index: false,
     follow: false,

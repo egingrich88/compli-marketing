@@ -17,7 +17,7 @@ export default function ComingSoon({
   eyebrow = "Coming soon",
   ctaText = "Notify me at launch",
   ctaHref = "/contact",
-  launchDate = "June 2026",
+  launchDate = "Summer 2026",
   microcopy,
 }: ComingSoonProps) {
   return (
