@@ -4,7 +4,7 @@ import ComingSoon from "@/components/ComingSoon";
 export const metadata: Metadata = {
   title: "Terms of Service — Compli",
   description:
-    "Compli's terms of service, publishing prior to platform launch in June 2026.",
+    "Compli's terms of service, publishing prior to platform launch in Summer 2026.",
 };
 
 export default function TermsPage() {

@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   title: "Pricing — Compli",
   description:
     "Compli pricing for employers and partners. Publishing ahead of the Summer 2026 launch. Federal compliance and AI & Biometrics — productized, monthly billing, no annual lock-in.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function PricingPage() {
