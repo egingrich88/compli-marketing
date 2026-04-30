@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Features — Compli",
   description:
     "Compli ships 28 federal compliance programs and 5 AI & Biometrics programs at Summer 2026 — federal benefits, labor and safety frameworks, plus the AI & Biometrics Suite, Federal Edition.",
+  alternates: {
+    canonical: "/features",
+  },
 };
 
 export default function FeaturesPage() {

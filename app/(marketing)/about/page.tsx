@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     "About Compli — The Federal AI & Biometrics Compliance Platform",
   description:
     "Compli is the federal compliance platform for American employers, leading in AI & Biometrics. Built around EEOC, NIST AI RMF, FTC §5, FCRA, and the federal frameworks employers actually need.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {

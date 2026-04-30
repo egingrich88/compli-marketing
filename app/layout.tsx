@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
+import OrganizationSchema from "@/components/OrganizationSchema";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -66,6 +67,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col antialiased bg-white text-ink">
         <Analytics />
+        <OrganizationSchema />
         {children}
       </body>
     </html>

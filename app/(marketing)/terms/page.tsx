@@ -5,6 +5,14 @@ export const metadata: Metadata = {
   title: "Terms of Service — Compli",
   description:
     "Compli's terms of service, publishing prior to platform launch in Summer 2026.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function TermsPage() {

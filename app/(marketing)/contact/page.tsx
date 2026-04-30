@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Contact — Compli",
   description:
     "Get in touch with the Compli team. Questions about the platform, partnership inquiries, and press requests.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
