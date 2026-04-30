@@ -6,7 +6,7 @@ const ORGANIZATION_SCHEMA = {
   url: "https://compli.biz",
   logo: "https://compli.biz/compli-logo-light.png",
   description:
-    "Federal compliance platform for American employers, with AI & Biometrics as flagship.",
+    "Federal compliance platform for American employers, with AI & Biometrics compliance built in.",
   address: {
     "@type": "PostalAddress",
     streetAddress: "272 Bell Ave",
