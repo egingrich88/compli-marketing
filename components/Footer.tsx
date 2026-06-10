@@ -50,7 +50,7 @@ export default function Footer() {
 
           {columns.map((col) => (
             <div key={col.heading}>
-              <h3 className="mono-label text-white/60">{col.heading}</h3>
+              <p className="mono-label text-white/60">{col.heading}</p>
               <ul className="mt-5 space-y-3">
                 {col.links.map((l) => (
                   <li key={l.href}>
