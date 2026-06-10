@@ -1,16 +1,11 @@
 import Link from "next/link";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
-import DashboardMockup from "@/components/DashboardMockup";
+import SectionHeader from "@/components/SectionHeader";
+import ProgramLedger from "@/components/ProgramLedger";
 import RegulationStrip from "@/components/RegulationStrip";
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="text-sm font-semibold uppercase tracking-wider text-green">
-      {children}
-    </div>
-  );
-}
+import AbSuiteDiagram from "@/components/AbSuiteDiagram";
+import Reveal from "@/components/Reveal";
 
 type Pillar = {
   number: string;
@@ -91,412 +86,412 @@ const backbonePrograms = [
   "OSHA Compliance",
 ];
 
-const launchModules = [
-  { code: "AI-3", name: "Performance Monitoring" },
-  { code: "AI-4", name: "Governance & Federal Readiness" },
-  { code: "CONV-2", name: "AI Background Check & FCRA" },
-  { code: "CONV-3", name: "Emerging Federal AI Preparation" },
-  { code: "BIO-3", name: "Biometric Data Lifecycle (Federal Scope)" },
-];
-
 const trustSignals = [
   "Federal-first by design — built around the federal frameworks employers can't afford to ignore",
   "AI & Biometrics — first-mover positioning in an emerging category",
   "33 federal programs · Launching Summer 2026",
 ];
 
+function Tick({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M3 8.5l4 4 6-9"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
-        <Container>
-          <div className="py-24 lg:py-32">
-            <div className="grid lg:grid-cols-[1.6fr_1fr] gap-12 lg:gap-16 items-center">
-              <div className="text-center lg:text-left">
-                <Eyebrow>Federal compliance for American employers</Eyebrow>
+      {/* ── HERO ──────────────────────────────────────────── */}
+      <section className="relative bg-ink overflow-hidden">
+        {/* fine vertical grid texture */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden lg:grid grid-cols-4"
+        >
+          <div className="border-l border-white/[0.06]" />
+          <div className="border-l border-white/[0.06]" />
+          <div className="border-l border-white/[0.06]" />
+          <div className="border-l border-r border-white/[0.06]" />
+        </div>
 
-                <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-6xl xl:text-7xl text-white leading-[1.05] tracking-tight">
-                  <span className="block whitespace-nowrap">Compliant today.</span>
-                  <span className="block whitespace-nowrap">Protected tomorrow.</span>
+        <Container className="relative">
+          <div className="pt-20 pb-16 lg:pt-28 lg:pb-20">
+            <div className="grid lg:grid-cols-[1.25fr_1fr] gap-14 lg:gap-20 items-center">
+              <div>
+                <div className="flex items-center gap-4">
+                  <span className="mono-label text-accent-bright">
+                    Federal compliance for American employers
+                  </span>
+                </div>
+
+                <h1 className="display mt-7 text-[2.9rem] sm:text-6xl lg:text-[4.4rem] xl:text-[5rem] text-white">
+                  Compliant today.
+                  <br />
+                  Protected tomorrow.
                 </h1>
 
-                <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                  Federal compliance for American employers — protecting
-                  today, securing tomorrow with AI &amp; Biometric compliance.
+                <p className="mt-7 text-lg lg:text-xl text-white/75 leading-relaxed max-w-xl">
+                  The federal compliance platform for employers with federal
+                  obligations and no compliance team — 33 programs across
+                  benefits, leave, labor, and safety, leading in AI &amp;
+                  Biometrics.
                 </p>
 
-                <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <Button
-                    href="/get-started"
-                    variant="primary"
-                    className="px-8 py-4"
-                  >
+                <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                  <Button href="/get-started" variant="primary">
                     Get notified at launch
                   </Button>
-                  <Button
-                    href="/features"
-                    variant="secondary"
-                    className="px-8 py-4 !border-white/30 !text-white hover:!bg-white hover:!text-navy"
-                  >
+                  <Button href="/features" variant="outline-light">
                     See what we cover
                   </Button>
                 </div>
 
-                <p className="mt-5 text-xs text-white/50 max-w-xl mx-auto lg:mx-0">
-                  Launching Summer 2026 · Built around EEOC, NIST AI RMF, FTC
-                  §5, FCRA
+                <p className="mono-label mt-7 !text-[0.62rem] text-white/40">
+                  Launching Summer 2026 · EEOC · NIST AI RMF · FTC §5 · FCRA
                 </p>
-
-                <div className="mt-12 lg:mt-14">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4 text-center">
-                    Coverage areas
-                  </p>
-                  <RegulationStrip categorized />
-                </div>
               </div>
 
-              <div className="lg:pl-4">
-                <DashboardMockup />
-              </div>
+              <Reveal className="hidden md:block">
+                <ProgramLedger />
+              </Reveal>
+            </div>
+
+            <div className="mt-16 lg:mt-20">
+              <RegulationStrip categorized />
             </div>
           </div>
         </Container>
       </section>
 
-      {/* WHY A&B, WHY NOW */}
-      <section className="bg-white py-20 lg:py-24">
+      {/* ── 01 · WHY NOW ──────────────────────────────────── */}
+      <section className="bg-paper py-24 lg:py-32">
         <Container>
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="w-12 h-0.5 bg-green mx-auto mb-6" />
-              <Eyebrow>Why now</Eyebrow>
-              <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-                AI &amp; Biometrics is the next decade&apos;s compliance
-                battleground.
-              </h2>
-              <p className="mt-6 text-lg lg:text-xl text-body leading-relaxed">
-                Federal AI employment legislation is on the horizon for 2026
-                and 2027. EEOC enforcement actions and class-action settlements
-                are already shaping the playing field. Mid-market American
-                employers are the most exposed — they carry the obligations of
-                large employers without the compliance teams that handle them.
-                Compli is built specifically for this category.
-              </p>
-            </div>
+          <div className="grid lg:grid-cols-[1fr_1.3fr] gap-14 lg:gap-24">
+            <Reveal>
+              <SectionHeader
+                index="01"
+                eyebrow="Why now"
+                title={
+                  <>
+                    AI &amp; Biometrics is the next decade&apos;s compliance
+                    battleground.
+                  </>
+                }
+                lede="Federal AI employment legislation is on the horizon for 2026 and 2027. EEOC enforcement actions and class-action settlements are already shaping the playing field. Mid-market American employers are the most exposed — they carry the obligations of large employers without the compliance teams that handle them. Compli is built specifically for this category."
+              />
+            </Reveal>
 
-            <div className="mt-16 grid md:grid-cols-3 gap-8">
-              {pillars.map((p) => (
-                <div
+            <div>
+              {pillars.map((p, i) => (
+                <Reveal
                   key={p.number}
-                  className="bg-gradient-to-br from-navy to-navy-dark border-l-4 border-accent rounded-2xl p-8"
+                  delay={i * 90}
+                  className="border-t border-line-strong py-8 lg:py-10 first:lg:pt-2 grid sm:grid-cols-[4rem_1fr] gap-4"
                 >
-                  <div className="text-sm font-semibold tracking-widest text-[color:var(--color-accent)]">
+                  <span className="mono-label text-accent" aria-hidden="true">
                     {p.number}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-2xl text-ink tracking-tight">
+                      {p.title}
+                    </h3>
+                    <p className="mt-3 text-body leading-relaxed">{p.body}</p>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-white leading-tight">
-                    {p.title}
-                  </h3>
-                  <p className="mt-4 text-white/85 leading-relaxed">{p.body}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* WHAT COMPLI COVERS */}
-      <section className="bg-white py-20 lg:py-24">
+      {/* ── 02 · THE FEDERAL BACKBONE ─────────────────────── */}
+      <section className="bg-white border-y border-line py-24 lg:py-32">
         <Container>
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="w-12 h-0.5 bg-green mx-auto mb-6" />
-              <Eyebrow>Coverage</Eyebrow>
-              <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-                What Compli covers.
-              </h2>
-              <p className="mt-6 text-lg lg:text-xl text-body leading-relaxed">
-                The federal compliance work American employers actually have
-                to do — across benefits, leave, labor, safety, and the AI
-                &amp; Biometrics edge.
-              </p>
-            </div>
+          <div className="grid lg:grid-cols-[1fr_1.3fr] gap-14 lg:gap-24 items-start">
+            <Reveal>
+              <SectionHeader
+                index="02"
+                eyebrow="Coverage"
+                title="The compliance backbone, productized."
+                lede="ERISA, ACA, COBRA, FMLA, HIPAA, OSHA, FLSA, FCRA. Form 5500 filings, Summary Plan Descriptions, COBRA election windows, ACA 1094/1095 reporting, OSHA logs. The federal compliance work mid-market employers carry but rarely have a real platform for."
+              />
+            </Reveal>
 
-            <div className="mt-16 grid md:grid-cols-2 gap-8">
-              {/* LEFT — Federal backbone */}
-              <div className="bg-white border-2 border-navy rounded-2xl p-8 md:p-10">
-                <div className="text-xs font-semibold uppercase tracking-widest text-green">
-                  Federal benefits, leave &amp; labor
+            <Reveal delay={120}>
+              <div className="border border-line-strong">
+                <div className="flex items-center justify-between border-b border-line-strong bg-paper px-5 py-3">
+                  <span className="mono-label text-ink">
+                    Federal benefits, leave &amp; labor
+                  </span>
+                  <span className="mono-label text-faint">28 programs</span>
                 </div>
-                <h3 className="mt-3 text-2xl font-semibold text-ink leading-tight">
-                  The compliance backbone
-                </h3>
-                <p className="mt-4 text-body leading-relaxed">
-                  ERISA, ACA, COBRA, FMLA, HIPAA, OSHA, FLSA, FCRA. Form 5500
-                  filings, Summary Plan Descriptions, COBRA election windows,
-                  ACA 1094/1095 reporting, OSHA logs. The federal compliance
-                  work mid-market employers carry but rarely have a real
-                  platform for.
-                </p>
-                <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-body">
-                  {backbonePrograms.map((p) => (
-                    <li key={p} className="flex items-start gap-2">
-                      <span className="text-green mt-1.5 leading-none">·</span>
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* RIGHT — A&B Federal Edition */}
-              <div className="bg-navy text-white rounded-2xl p-8 md:p-10">
-                <div className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                  AI &amp; Biometrics — Federal Edition
-                </div>
-                <h3 className="mt-3 text-2xl font-semibold text-white leading-tight">
-                  Ahead of the curve
-                </h3>
-                <p className="mt-4 text-white/85 leading-relaxed">
-                  EEOC AI hiring guidance. FCRA applied to algorithmic
-                  screening. NIST AI RMF documentation. The federal AI
-                  compliance work nobody else has productized for the
-                  mid-market — built early so customers are positioned ahead
-                  of federal AI legislation.
-                </p>
-                <ul className="mt-6 space-y-2 text-sm text-white/90">
-                  {launchModules.map((m) => (
-                    <li key={m.code} className="flex items-start gap-3">
-                      <span className="font-mono text-[color:var(--color-accent)] font-semibold tracking-wide whitespace-nowrap">
-                        {m.code}
+                <ul className="grid sm:grid-cols-2">
+                  {backbonePrograms.map((p, i) => (
+                    <li
+                      key={p}
+                      className={`flex items-center gap-3 px-5 py-4 border-line ${
+                        i % 2 === 0 ? "sm:border-r" : ""
+                      } ${i < backbonePrograms.length - 2 ? "border-b" : ""} ${
+                        i === backbonePrograms.length - 2 ? "border-b sm:border-b-0" : ""
+                      }`}
+                    >
+                      <Tick className="text-accent shrink-0" />
+                      <span className="text-[0.95rem] font-medium text-ink">
+                        {p}
                       </span>
-                      <span>— {m.name}</span>
                     </li>
                   ))}
                 </ul>
+                <div className="border-t border-line-strong px-5 py-3">
+                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.12em] text-faint">
+                    Federal-only at launch · 28 federal programs + 5 AI &amp;
+                    Biometrics programs
+                  </p>
+                </div>
               </div>
-            </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
 
-            <div className="mt-12 text-center">
-              <p className="text-sm text-muted">
-                Federal-only at launch. Compli ships 28 federal compliance
-                programs and 5 AI &amp; Biometrics programs at Summer 2026.
-              </p>
+      {/* ── 03 · AI & BIOMETRICS SUITE — the showcase ─────── */}
+      <section className="relative bg-ink overflow-hidden">
+        <div className="h-1 bg-accent" aria-hidden="true" />
+        <Container>
+          <div className="py-24 lg:py-32">
+            <Reveal>
+              <SectionHeader
+                index="03"
+                eyebrow="AI & Biometrics Suite — Federal Edition"
+                dark
+                title="Ahead of the curve, by design."
+                lede="EEOC AI hiring guidance. FCRA applied to algorithmic screening. NIST AI RMF documentation. The federal AI compliance work nobody else has productized for the mid-market — built early so customers are positioned ahead of federal AI legislation."
+              />
+            </Reveal>
+
+            <Reveal className="mt-14 lg:mt-20" delay={150}>
+              <AbSuiteDiagram />
+            </Reveal>
+
+            <div className="mt-14 lg:mt-16 border-t border-white/15 pt-8 grid sm:grid-cols-3 gap-8">
+              <div>
+                <p className="font-serif text-3xl text-white">5 programs</p>
+                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  shipping in the suite at Summer 2026 launch
+                </p>
+              </div>
+              <div>
+                <p className="font-serif text-3xl text-white">First mover</p>
+                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  in mid-market AI &amp; Biometrics employer compliance
+                </p>
+              </div>
+              <div>
+                <p className="font-serif text-3xl text-white">2026–2027</p>
+                <p className="mt-2 text-sm text-white/65 leading-relaxed">
+                  expected federal AI legislation — already in market when it
+                  lands
+                </p>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* CASE STUDIES */}
-      <section className="bg-surface py-20 lg:py-24">
+      {/* ── 04 · THE COST OF GETTING IT WRONG ─────────────── */}
+      <section className="bg-paper py-24 lg:py-32">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="w-12 h-0.5 bg-green mx-auto mb-6" />
-            <Eyebrow>The cost of getting it wrong</Eyebrow>
-            <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              The penalties are federal. The frameworks are real. Compli
-              handles them.
-            </h2>
-            <p className="mt-6 text-lg lg:text-xl text-body leading-relaxed">
-              From EEOC enforcement against AI hiring tools, to FCRA penalties
-              on algorithmic screening, to ERISA fines on missed Form 5500
-              filings — federal compliance exposure has teeth. Compli handles
-              the documentation, deadlines, and defenses across AI &amp;
-              Biometrics and the benefits backbone.
-            </p>
-          </div>
+          <Reveal>
+            <SectionHeader
+              index="04"
+              eyebrow="The cost of getting it wrong"
+              title="The penalties are federal. The frameworks are real."
+              lede="From EEOC enforcement against AI hiring tools, to FCRA penalties on algorithmic screening, to ERISA fines on missed Form 5500 filings — federal compliance exposure has teeth. Compli handles the documentation, deadlines, and defenses."
+            />
+          </Reveal>
 
-          <div className="mt-16 grid md:grid-cols-2 gap-6">
-            {caseStudies.map((c) => (
-              <div
+          <div className="mt-14 grid md:grid-cols-2 border-t border-l border-line-strong">
+            {caseStudies.map((c, i) => (
+              <Reveal
                 key={c.reg + c.title}
-                className="bg-white border border-line rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+                delay={(i % 2) * 100}
+                className="border-b border-r border-line-strong bg-white p-8 lg:p-10"
               >
-                <div className="h-1 bg-red-700/60" />
-                <div className="p-8">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="text-xs font-semibold uppercase tracking-wider text-green">
-                      {c.reg}
-                    </div>
-                    <div className="text-xs font-semibold uppercase tracking-wider text-muted">
-                      {c.jurisdiction}
-                    </div>
-                  </div>
-                  <h3 className="mt-4 text-xl font-semibold text-ink leading-tight">
-                    {c.title}
-                  </h3>
-                  <div className="mt-4 flex items-baseline gap-2">
-                    <span className="text-3xl font-bold text-ink">{c.amount}</span>
-                    <span className="text-sm text-body">{c.amountSuffix}</span>
-                  </div>
-                  <p className="mt-4 text-body leading-relaxed">{c.body}</p>
+                <div className="flex items-baseline justify-between gap-4">
+                  <span className="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-accent">
+                    {c.reg}
+                  </span>
+                  <span className="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-faint">
+                    {c.jurisdiction}
+                  </span>
                 </div>
-              </div>
+                <h3 className="font-serif mt-5 text-2xl text-ink tracking-tight leading-snug">
+                  {c.title}
+                </h3>
+                <div className="mt-5 flex items-baseline gap-3 border-b border-line pb-5">
+                  <span className="display text-4xl text-ink">{c.amount}</span>
+                  <span className="text-sm text-faint">{c.amountSuffix}</span>
+                </div>
+                <p className="mt-5 text-[0.95rem] text-body leading-relaxed">
+                  {c.body}
+                </p>
+              </Reveal>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted">
-              These are four of 33 compliance programs Compli covers.
-              <Link
-                href="/features"
-                className="text-green hover:text-green-dark font-semibold ml-1"
-              >
-                See what we cover →
-              </Link>
-            </p>
-          </div>
+          <p className="mt-8 text-sm text-faint">
+            These are four of 33 compliance programs Compli covers.{" "}
+            <Link
+              href="/features"
+              className="font-semibold text-accent hover:text-accent-deep"
+            >
+              See what we cover →
+            </Link>
+          </p>
         </Container>
       </section>
 
-      {/* AI ASSISTANT */}
-      <section className="bg-white py-16 lg:py-20">
+      {/* ── 05 · ASK COMPLI ───────────────────────────────── */}
+      <section className="bg-white border-y border-line py-24 lg:py-32">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="w-12 h-0.5 bg-green mx-auto mb-6" />
-            <Eyebrow>Built-in expertise</Eyebrow>
-            <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              Ask Compli.
-              <br />
-              Get answers.
-            </h2>
-          </div>
-
-          <div className="mt-16 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <div>
-              <p className="text-lg text-body leading-relaxed">
-                Compli&apos;s AI assistant answers compliance questions 24/7 —
-                does my hiring tool need an EEOC AI audit, what does FCRA
-                require for AI background checks, am I building NIST AI RMF
-                documentation correctly — without calling a lawyer or guessing.
-              </p>
-              <p className="mt-4 text-lg text-body leading-relaxed">
+          <div className="grid lg:grid-cols-[1fr_1.15fr] gap-14 lg:gap-24 items-center">
+            <Reveal>
+              <SectionHeader
+                index="05"
+                eyebrow="Built-in expertise"
+                title={
+                  <>
+                    Ask Compli.
+                    <br />
+                    Get answers.
+                  </>
+                }
+                lede="Compli's AI assistant answers compliance questions 24/7 — does my hiring tool need an EEOC AI audit, what does FCRA require for AI background checks, am I building NIST AI RMF documentation correctly — without calling a lawyer or guessing."
+              />
+              <p className="mt-5 text-lg text-body leading-relaxed max-w-2xl">
                 Trained on your specific configuration: your headcount, your
-                benefits, your states, your deadlines.
+                benefits, your deadlines.
               </p>
-            </div>
+            </Reveal>
 
-            <div className="bg-surface border border-line rounded-2xl p-8 space-y-4">
-              <div className="bg-white border border-line rounded-xl px-5 py-4">
-                <p className="text-sm text-muted mb-1">You</p>
-                <p className="text-ink">
-                  Does my hiring tool need an EEOC AI audit?
-                </p>
-              </div>
-              <div className="bg-navy text-white rounded-xl px-5 py-4">
-                <p className="text-sm text-white/60 mb-1">Compli</p>
-                <p>
-                  Likely yes. Your applicant volume crosses the four-fifths
-                  threshold for adverse impact analysis. I&apos;ve drafted the
-                  audit framework using NIST AI RMF and queued the vendor
-                  disclosure request. Ready to send?
-                </p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* PARTNER PROGRAM */}
-      <section className="bg-surface py-16 lg:py-20">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="w-12 h-0.5 bg-green mx-auto mb-6" />
-            <Eyebrow>Partners</Eyebrow>
-            <h2 className="mt-3 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              Built for brokers, CPAs, and consultants.
-            </h2>
-            <p className="mt-6 text-lg lg:text-xl text-body leading-relaxed">
-              If you advise employers, Compli gives your book a federal
-              compliance backbone with AI &amp; Biometrics work no one in the
-              mid-market has productized. Co-branded portals, revenue share,
-              and a partner team that helps you onboard.
-            </p>
-            <div className="mt-10 flex justify-center">
-              <Button
-                href="/become-a-partner"
-                variant="primary"
-                className="px-8 py-4"
-              >
-                Become a partner
-              </Button>
-            </div>
-            <div className="mt-8 w-24 h-px bg-line mx-auto" />
-          </div>
-        </Container>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark py-24 lg:py-32 overflow-hidden">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="w-12 h-0.5 bg-green mx-auto mb-6" />
-            <Eyebrow>Get started</Eyebrow>
-            <h2 className="mt-3 font-serif text-4xl md:text-6xl text-white leading-[1.1] tracking-tight">
-              Stay Compliant. Stay Protected.
-            </h2>
-            <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-              Federal AI &amp; Biometrics compliance launches Summer 2026.
-              Get on the early-notification list, or talk to us about
-              partnering.
-            </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                href="/get-started"
-                variant="primary"
-                className="px-8 py-4"
-              >
-                Get notified at launch
-              </Button>
-              <Button
-                href="/become-a-partner"
-                variant="secondary"
-                className="px-8 py-4 !border-white/30 !text-white hover:!bg-white hover:!text-navy"
-              >
-                Become a partner
-              </Button>
-            </div>
-
-            <div className="mt-16 pt-12 border-t border-white/10">
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-8">
-                Why employers choose Compli
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-3xl mx-auto">
-                {trustSignals.map((line) => (
-                  <div
-                    key={line}
-                    className="flex flex-col items-center text-center"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-green/20 flex items-center justify-center mb-4">
-                      <svg
-                        className="w-5 h-5 text-green"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M20 7l-8 10-4-4" />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-white/80 leading-relaxed">
-                      {line}
+            <Reveal delay={120}>
+              <div className="border border-line-strong bg-paper">
+                <div className="flex items-center justify-between border-b border-line-strong px-5 py-3">
+                  <span className="mono-label text-ink">Ask Compli</span>
+                  <span className="mono-label text-faint">Transcript</span>
+                </div>
+                <div className="p-6 space-y-5">
+                  <div>
+                    <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-faint">
+                      You · 09:14
+                    </p>
+                    <p className="mt-2 text-ink leading-relaxed">
+                      Does my hiring tool need an EEOC AI audit?
                     </p>
                   </div>
-                ))}
+                  <div className="border-l-2 border-accent bg-white px-5 py-4">
+                    <p className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-accent">
+                      Compli · 09:14
+                    </p>
+                    <p className="mt-2 text-ink leading-relaxed">
+                      Likely yes. Your applicant volume crosses the four-fifths
+                      threshold for adverse impact analysis. I&apos;ve drafted
+                      the audit framework using NIST AI RMF and queued the
+                      vendor disclosure request. Ready to send?
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
 
-            <div className="mt-10 text-sm text-white/60">
+      {/* ── 06 · PARTNERS ─────────────────────────────────── */}
+      <section className="bg-paper-2 py-24 lg:py-28">
+        <Container>
+          <div className="grid lg:grid-cols-[1.3fr_auto] gap-10 items-center">
+            <Reveal>
+              <SectionHeader
+                index="06"
+                eyebrow="Partners"
+                title="Built for brokers, CPAs, and consultants."
+                lede="If you advise employers, Compli gives your book a federal compliance backbone with AI & Biometrics work no one in the mid-market has productized. Co-branded portals, revenue share, and a partner team that helps you onboard."
+              />
+            </Reveal>
+            <Reveal delay={100}>
+              <Button href="/become-a-partner" variant="secondary">
+                Become a partner
+              </Button>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── FINAL CTA ─────────────────────────────────────── */}
+      <section className="relative bg-ink py-24 lg:py-32 overflow-hidden">
+        <Container>
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-4">
+              <span className="mono-label text-accent-bright">Get started</span>
+              <span className="h-px w-10 bg-white/20" aria-hidden="true" />
+              <span className="mono-label text-white/50">Summer 2026</span>
+            </div>
+            <h2 className="display mt-7 text-5xl md:text-6xl lg:text-7xl text-white">
+              Stay Compliant.
+              <br />
+              Stay Protected.
+            </h2>
+            <p className="mt-7 text-lg lg:text-xl text-white/75 leading-relaxed max-w-2xl">
+              Federal AI &amp; Biometrics compliance launches Summer 2026. Get
+              on the early-notification list, or talk to us about partnering.
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Button href="/get-started" variant="primary">
+                Get notified at launch
+              </Button>
+              <Button href="/become-a-partner" variant="outline-light">
+                Become a partner
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-20 border-t border-white/15 pt-10">
+            <p className="mono-label text-white/45 mb-8">
+              Why employers choose Compli
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+              {trustSignals.map((line) => (
+                <div key={line} className="flex items-start gap-3">
+                  <Tick className="mt-1 shrink-0 text-accent-bright" />
+                  <p className="text-sm text-white/75 leading-relaxed">{line}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-12 text-sm text-white/60">
               Questions?{" "}
               <Link
                 href="/contact"
-                className="text-white underline hover:text-green transition-colors"
+                className="text-white underline underline-offset-4 hover:text-accent-bright transition-colors"
               >
                 Get in touch
               </Link>
-            </div>
+            </p>
           </div>
         </Container>
       </section>

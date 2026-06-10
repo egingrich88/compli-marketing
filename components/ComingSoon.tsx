@@ -21,44 +21,45 @@ export default function ComingSoon({
   microcopy,
 }: ComingSoonProps) {
   return (
-    <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
-      <Container>
-        <div className="py-24 md:py-32">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="text-sm font-semibold uppercase tracking-wider text-green">
-              {eyebrow}
+    <section className="relative bg-ink overflow-hidden">
+      {/* fine vertical grid lines */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hidden lg:grid grid-cols-4"
+      >
+        <div className="border-l border-white/[0.06]" />
+        <div className="border-l border-white/[0.06]" />
+        <div className="border-l border-white/[0.06]" />
+        <div className="border-l border-r border-white/[0.06]" />
+      </div>
+
+      <Container className="relative">
+        <div className="py-28 md:py-36">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-4">
+              <span className="mono-label text-accent-bright">{eyebrow}</span>
+              <span className="h-px w-10 bg-white/20" aria-hidden="true" />
+              <span className="mono-label text-white/50">{launchDate}</span>
             </div>
 
-            <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
+            <h1 className="display mt-8 text-5xl sm:text-6xl lg:text-7xl text-white">
               {title}
             </h1>
 
-            <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed">
+            <p className="mt-7 text-lg lg:text-xl text-white/75 leading-relaxed max-w-xl">
               {description}
             </p>
 
-            <div className="mt-10 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2">
-              <span
-                className="w-2 h-2 rounded-full bg-green"
-                aria-hidden="true"
-              />
-              <span className="text-sm font-semibold uppercase tracking-widest text-white/80">
-                Launching {launchDate}
-              </span>
-            </div>
-
             {ctaText && ctaHref && (
               <div className="mt-10">
-                <Button href={ctaHref} variant="primary" className="px-8 py-4">
+                <Button href={ctaHref} variant="primary">
                   {ctaText}
                 </Button>
               </div>
             )}
 
             {microcopy && (
-              <p className="mt-4 text-xs text-white/60 text-center">
-                {microcopy}
-              </p>
+              <p className="mt-5 text-xs text-white/55">{microcopy}</p>
             )}
           </div>
         </div>

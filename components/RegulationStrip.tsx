@@ -40,24 +40,22 @@ export default function RegulationStrip({
   variant = "dark",
   categorized = false,
 }: RegulationStripProps) {
-  const dotColor = variant === "dark" ? "text-white/30" : "text-line";
+  const dotColor = variant === "dark" ? "text-white/30" : "text-line-strong";
 
   if (categorized) {
     return (
-      <div
-        className={`bg-white/[0.03] rounded-lg py-6 md:py-8 px-6 md:px-10 ${className}`}
-      >
+      <div className={`border-t border-white/15 pt-6 ${className}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0">
-          {/* LEFT — Federal */}
+          {/* Federal backbone */}
           <div>
-            <p className="font-serif italic text-sm text-white/60 mb-3">
-              Federal
+            <p className="mono-label !text-[0.62rem] text-white/45 mb-3">
+              Federal backbone
             </p>
             <div className="flex flex-wrap gap-x-5 gap-y-2">
               {FEDERAL_BACKBONE.map((reg) => (
                 <span
                   key={reg}
-                  className="text-sm font-medium text-white/85 whitespace-nowrap"
+                  className="font-mono text-[0.78rem] tracking-wide text-white/80 whitespace-nowrap"
                 >
                   {reg}
                 </span>
@@ -65,16 +63,16 @@ export default function RegulationStrip({
             </div>
           </div>
 
-          {/* RIGHT — AI & Biometrics */}
-          <div className="border-t-2 border-[color:var(--color-accent)] pt-6 md:pt-0 md:border-t-0 md:border-l-2 md:border-[color:var(--color-accent)] md:pl-8 lg:pl-12">
-            <p className="font-serif italic text-sm text-white/60 mb-3">
+          {/* AI & Biometrics */}
+          <div className="border-t border-white/15 pt-6 md:pt-0 md:border-t-0 md:border-l md:border-white/15 md:pl-8 lg:pl-12">
+            <p className="mono-label !text-[0.62rem] text-accent-bright mb-3">
               AI &amp; Biometrics
             </p>
             <div className="flex flex-wrap gap-x-5 gap-y-2">
               {AB_ANCHORS.map((reg) => (
                 <span
                   key={reg}
-                  className="text-sm font-semibold text-green whitespace-nowrap"
+                  className="font-mono text-[0.78rem] tracking-wide text-accent-bright whitespace-nowrap"
                 >
                   {reg}
                 </span>
@@ -86,12 +84,10 @@ export default function RegulationStrip({
     );
   }
 
-  // Backward-compatible single-row layout (default — unchanged)
-  const singleRowColor =
-    variant === "dark" ? "text-white/60" : "text-muted";
+  const singleRowColor = variant === "dark" ? "text-white/65" : "text-faint";
   return (
     <div
-      className={`flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs font-semibold uppercase tracking-widest ${singleRowColor} ${className}`}
+      className={`flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-[0.7rem] uppercase tracking-[0.14em] ${singleRowColor} ${className}`}
     >
       {regulations.map((reg, i) => (
         <Fragment key={reg}>

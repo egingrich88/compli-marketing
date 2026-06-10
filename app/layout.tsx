@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Fraunces } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 import OrganizationSchema from "@/components/OrganizationSchema";
@@ -10,9 +10,15 @@ const geist = Geist({
   display: "swap",
 });
 
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+  display: "swap",
+});
+
 const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  axes: ["opsz"],
   variable: "--font-fraunces",
   display: "swap",
 });
@@ -63,9 +69,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${fraunces.variable} h-full`}
+      className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} h-full`}
     >
-      <body className="min-h-screen flex flex-col antialiased bg-white text-ink">
+      <body className="min-h-screen flex flex-col antialiased bg-paper text-ink">
         <Analytics />
         <OrganizationSchema />
         {children}

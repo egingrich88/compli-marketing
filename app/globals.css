@@ -1,22 +1,48 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #1B3A5C;
-  --color-navy-dark: #142C47;
-  --color-navy-light: #2B5680;
-  --color-green: #2FAE66;
-  --color-green-dark: #259656;
-  --color-green-light: #4EC27F;
-  --color-accent: #B5471F;
-  --color-ink: #0F172A;
-  --color-body: #475569;
-  --color-muted: #94A3B8;
-  --color-line: #E2E8F0;
-  --color-surface: #F8FAFC;
+  /*
+   * Compli design tokens — "Compliance, engineered."
+   * Deep ink anchor · warm paper ground · one emerald accent.
+   */
+
+  /* Anchor */
+  --color-ink: #0b1623; /* deep ink-navy — dark sections, headlines */
+  --color-ink-2: #101f30; /* raised panel on ink */
+  --color-ink-3: #1a2c3e; /* borders / hover on ink */
+
+  /* Ground */
+  --color-paper: #faf9f5; /* warm off-white page ground */
+  --color-paper-2: #f2f0e8; /* alternate section ground */
+
+  /* Accent — the only one */
+  --color-accent: #0e7c4f; /* emerald, AA on paper */
+  --color-accent-deep: #0a5e3c; /* hover */
+  --color-accent-bright: #43d17c; /* accent on ink */
+
+  /* Text */
+  --color-body: #3d4a57;
+  --color-faint: #5c6b77;
+
+  /* Rules */
+  --color-line: #e3e0d6; /* warm hairline on light */
+  --color-line-strong: #c9c5b6;
+
+  /* Legacy aliases — keep untouched pages coherent with the new palette */
+  --color-navy: #0b1623;
+  --color-navy-dark: #081020;
+  --color-navy-light: #1a2c3e;
+  --color-green: #0e7c4f;
+  --color-green-dark: #0a5e3c;
+  --color-green-light: #43d17c;
+  --color-muted: #5c6b77;
+  --color-surface: #f2f0e8;
 
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: var(--font-fraunces), "Times New Roman", serif;
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
 }
 
 html {
@@ -24,10 +50,70 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Display type — Fraunces, tight and assured */
+.display {
+  font-family: var(--font-serif);
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+  font-weight: 560;
+}
+
+/* Mono micro-label — section numbers, program codes, data */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Ruled-paper texture for ledger panels */
+.ledger-rule {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    var(--color-line) 31px,
+    var(--color-line) 32px
+  );
+}
+
+/* Scroll reveal — opacity/transform only, honors reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Dashed-draw for SVG diagram strokes */
+@media (prefers-reduced-motion: no-preference) {
+  .diagram-draw {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+  }
+  .is-visible .diagram-draw {
+    stroke-dashoffset: 0;
+  }
 }
