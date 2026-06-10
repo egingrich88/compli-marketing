@@ -48,7 +48,7 @@ export default function RegulationStrip({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-0">
           {/* Federal backbone */}
           <div>
-            <p className="mono-label !text-[0.62rem] text-white/45 mb-3">
+            <p className="mono-label !text-[0.62rem] text-white/60 mb-3">
               Federal backbone
             </p>
             <div className="flex flex-wrap gap-x-5 gap-y-2">

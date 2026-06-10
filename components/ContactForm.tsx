@@ -14,9 +14,9 @@ const inquiryOptions: { value: InquiryType; label: string }[] = [
 ];
 
 const inputBase =
-  "w-full rounded-xl border border-line bg-white px-4 py-3 text-ink placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-green focus:border-green transition-colors";
+  "w-full rounded-[2px] border border-line-strong bg-white px-4 py-3 text-ink placeholder:text-faint focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors";
 
-const labelBase = "block text-sm font-medium text-ink mb-1.5";
+const labelBase = "mono-label block !text-[0.65rem] text-ink mb-2";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -73,10 +73,10 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="bg-white border border-line rounded-2xl p-8 text-center">
-        <div className="w-12 h-12 mx-auto rounded-full bg-green/15 flex items-center justify-center mb-4">
+      <div className="bg-white border border-line-strong p-8 text-center">
+        <div className="w-12 h-12 mx-auto border border-accent flex items-center justify-center mb-4">
           <svg
-            className="w-6 h-6 text-green"
+            className="w-6 h-6 text-accent"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -87,14 +87,14 @@ export default function ContactForm() {
             <path d="M20 7l-8 10-4-4" />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-ink">Message sent.</h3>
+        <h3 className="font-serif text-2xl text-ink tracking-tight">Message sent.</h3>
         <p className="mt-3 text-body leading-relaxed">
           Thanks for reaching out. We&apos;ll get back to you soon.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-6 text-sm font-semibold text-green hover:text-green-dark"
+          className="mt-6 text-sm font-semibold text-accent hover:text-accent-deep"
         >
           Send another message
         </button>
@@ -107,7 +107,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white border border-line rounded-2xl p-8 space-y-5"
+      className="bg-white border border-line-strong p-8 space-y-5"
     >
       <div>
         <label htmlFor="name" className={labelBase}>
@@ -220,7 +220,7 @@ export default function ContactForm() {
       {status === "error" && errorMessage && (
         <div
           role="alert"
-          className="rounded-xl border border-[#FCA5A5] bg-[#FEF2F2] px-4 py-3 text-sm text-[#B91C1C]"
+          className="rounded-[2px] border border-[#FCA5A5] bg-[#FEF2F2] px-4 py-3 text-sm text-[#B91C1C]"
         >
           {errorMessage}
         </div>
@@ -230,11 +230,11 @@ export default function ContactForm() {
         {submitting ? "Sending..." : "Send message"}
       </Button>
 
-      <p className="mt-4 text-xs text-muted text-center">
+      <p className="mt-4 text-xs text-faint text-center">
         By submitting, you agree to our{" "}
         <Link
           href="/privacy"
-          className="underline hover:text-navy transition-colors"
+          className="underline hover:text-ink transition-colors"
         >
           Privacy Policy
         </Link>

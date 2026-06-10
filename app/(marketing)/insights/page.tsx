@@ -18,14 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="text-sm font-semibold uppercase tracking-wider text-green">
-      {children}
-    </div>
-  );
-}
-
 function formatDate(date: Date): string {
   return date.toLocaleDateString("en-US", {
     year: "numeric",
@@ -39,39 +31,35 @@ export default function InsightsPage() {
 
   return (
     <>
-      {/* HERO */}
-      <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
+      {/* ── HERO ──────────────────────────────────────────── */}
+      <section className="bg-ink">
         <Container>
-          <div className="py-24 md:py-32">
-            <div className="max-w-3xl mx-auto text-center">
-              <Eyebrow>Insights</Eyebrow>
-              <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
-                Compliance, explained.
-              </h1>
-              <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed">
-                Plain-language explainers on the regulations employers actually
-                face — deadlines, penalties, and what to do about them.
-              </p>
-            </div>
+          <div className="py-20 lg:py-24">
+            <span className="mono-label text-accent-bright">Insights</span>
+            <h1 className="display mt-7 text-5xl sm:text-6xl lg:text-7xl text-white">
+              Compliance, explained.
+            </h1>
+            <p className="mt-7 text-lg lg:text-xl text-white/75 leading-relaxed max-w-xl">
+              Plain-language explainers on the regulations employers actually
+              face — deadlines, penalties, and what to do about them.
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* ARTICLE LIST OR EMPTY STATE */}
-      <section className="bg-white py-20 md:py-28">
+      {/* ── ARTICLES / EMPTY STATE ────────────────────────── */}
+      <section className="bg-paper py-20 lg:py-28">
         <Container>
           {articles.length === 0 ? (
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2">
-                <span
-                  className="w-2 h-2 rounded-full bg-green"
-                  aria-hidden="true"
-                />
-                <span className="text-sm font-semibold uppercase tracking-widest text-muted">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-4">
+                <span className="mono-label text-accent">Status</span>
+                <span className="h-px w-10 bg-line-strong" aria-hidden="true" />
+                <span className="mono-label text-faint">
                   First articles publishing soon
                 </span>
               </div>
-              <h2 className="mt-8 text-3xl md:text-4xl font-semibold text-ink tracking-tight leading-tight">
+              <h2 className="display mt-7 text-3xl md:text-4xl text-ink">
                 Compliance shouldn&apos;t require a law degree.
               </h2>
               <p className="mt-6 text-lg text-body leading-relaxed">
@@ -81,35 +69,33 @@ export default function InsightsPage() {
                 Articles begin publishing alongside the platform launch.
               </p>
               <div className="mt-10">
-                <Button href="/contact" variant="primary" className="px-8 py-4">
+                <Button href="/contact" variant="secondary">
                   Tell us what to write about
                 </Button>
               </div>
             </div>
           ) : (
-            <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {articles.map((article) => (
-                  <Link
-                    key={article.slug}
-                    href={`/insights/${article.slug}`}
-                    className="group bg-white border border-line rounded-2xl p-8 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-line-strong">
+              {articles.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/insights/${article.slug}`}
+                  className="group border-b border-r border-line-strong bg-white p-7 lg:p-8 transition-colors hover:bg-paper-2"
+                >
+                  <time
+                    dateTime={article.date.toISOString()}
+                    className="mono-label !text-[0.65rem] text-faint"
                   >
-                    <time
-                      dateTime={article.date.toISOString()}
-                      className="text-xs font-semibold uppercase tracking-wider text-muted"
-                    >
-                      {formatDate(article.date)}
-                    </time>
-                    <h2 className="mt-3 text-xl font-semibold text-ink leading-tight group-hover:text-green transition-colors">
-                      {article.title}
-                    </h2>
-                    <p className="mt-3 text-body leading-relaxed">
-                      {article.description}
-                    </p>
-                  </Link>
-                ))}
-              </div>
+                    {formatDate(article.date)}
+                  </time>
+                  <h2 className="mt-3 font-serif text-xl text-ink tracking-tight leading-snug group-hover:text-accent-deep transition-colors">
+                    {article.title}
+                  </h2>
+                  <p className="mt-3 text-[0.95rem] text-body leading-relaxed">
+                    {article.description}
+                  </p>
+                </Link>
+              ))}
             </div>
           )}
         </Container>

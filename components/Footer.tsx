@@ -50,7 +50,7 @@ export default function Footer() {
 
           {columns.map((col) => (
             <div key={col.heading}>
-              <h3 className="mono-label text-white/45">{col.heading}</h3>
+              <h3 className="mono-label text-white/60">{col.heading}</h3>
               <ul className="mt-5 space-y-3">
                 {col.links.map((l) => (
                   <li key={l.href}>
@@ -72,7 +72,7 @@ export default function Footer() {
             &copy; {year} Compli, LLC. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <span className="mono-label !text-[0.6rem] text-white/35">
+            <span className="mono-label !text-[0.6rem] text-white/55">
               Federal scope · 33 programs
             </span>
             <Link

@@ -160,7 +160,7 @@ export default function Home() {
                   </Button>
                 </div>
 
-                <p className="mono-label mt-7 !text-[0.62rem] text-white/40">
+                <p className="mono-label mt-7 !text-[0.62rem] text-white/60">
                   Launching Summer 2026 · EEOC · NIST AI RMF · FTC §5 · FCRA
                 </p>
               </div>
@@ -472,7 +472,7 @@ export default function Home() {
           </div>
 
           <div className="mt-20 border-t border-white/15 pt-10">
-            <p className="mono-label text-white/45 mb-8">
+            <p className="mono-label text-white/60 mb-8">
               Why employers choose Compli
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">

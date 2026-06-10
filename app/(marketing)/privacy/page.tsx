@@ -19,24 +19,23 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
+      <section className="bg-ink">
         <Container>
-          <div className="py-24 md:py-32">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
-                Privacy Policy
-              </h1>
-              <p className="mt-6 text-sm text-white/70">
-                Last updated: April 2026
-              </p>
-            </div>
+          <div className="py-16 lg:py-20">
+            <span className="mono-label text-accent-bright">Legal</span>
+            <h1 className="display mt-6 text-4xl sm:text-5xl lg:text-6xl text-white">
+              Privacy Policy
+            </h1>
+            <p className="mono-label mt-6 !text-[0.65rem] text-white/50">
+              Last updated: April 2026
+            </p>
           </div>
         </Container>
       </section>
 
-      <section className="bg-white py-20 lg:py-24">
+      <section className="bg-paper py-20 lg:py-24">
         <Container>
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl">
             <div className="space-y-5 text-lg text-body leading-relaxed">
               <p>
                 Compli LLC (&ldquo;Compli,&rdquo; &ldquo;we,&rdquo;

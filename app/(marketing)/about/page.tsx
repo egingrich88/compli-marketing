@@ -2,24 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
+import SectionHeader from "@/components/SectionHeader";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title:
-    "About Compli — The Federal AI & Biometrics Compliance Platform",
+  title: "About Compli — The Federal AI & Biometrics Compliance Platform",
   description:
     "Compli is the federal compliance platform for American employers, leading in AI & Biometrics. Built around EEOC, NIST AI RMF, FTC §5, FCRA, and the federal frameworks employers actually need.",
   alternates: {
     canonical: "/about",
   },
 };
-
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="text-sm font-semibold uppercase tracking-wider text-green">
-      {children}
-    </div>
-  );
-}
 
 const whyCards = [
   {
@@ -88,42 +81,59 @@ const commitments = [
   },
 ];
 
+function Tick({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M2.5 7.5l3.5 3.5 5.5-8"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+}
+
 export default function AboutPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
+      {/* ── HERO ──────────────────────────────────────────── */}
+      <section className="bg-ink">
         <Container>
-          <div className="py-24 md:py-32">
-            <div className="max-w-4xl mx-auto text-center">
-              <Eyebrow>About Compli</Eyebrow>
-              <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
-                We&apos;re building the federal compliance platform American
-                employers actually need.
-              </h1>
-              <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-                Compli is the federal compliance platform for American
-                employers, leading in AI &amp; Biometrics. Built around EEOC,
-                NIST AI RMF, FTC §5, FCRA — the federal frameworks employers
-                can&apos;t afford to ignore — with the federal compliance
-                backbone they&apos;ve always needed.
-              </p>
-            </div>
+          <div className="py-20 lg:py-28">
+            <span className="mono-label text-accent-bright">About Compli</span>
+            <h1 className="display mt-7 text-[2.6rem] sm:text-6xl lg:text-[4.2rem] text-white max-w-4xl">
+              The federal compliance platform American employers actually need.
+            </h1>
+            <p className="mt-7 text-lg lg:text-xl text-white/75 leading-relaxed max-w-2xl">
+              Compli is the federal compliance platform for American employers,
+              leading in AI &amp; Biometrics. Built around EEOC, NIST AI RMF,
+              FTC §5, FCRA — the federal frameworks employers can&apos;t afford
+              to ignore — with the federal compliance backbone they&apos;ve
+              always needed.
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* WHY WE BUILT THIS */}
-      <section className="bg-white py-20 md:py-28">
+      {/* ── 01 · ORIGIN ───────────────────────────────────── */}
+      <section className="bg-paper py-24 lg:py-32">
         <Container>
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-            <div>
-              <Eyebrow>Origin</Eyebrow>
-              <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-                Mid-market employers were the most exposed and the least
-                served.
-              </h2>
-              <div className="mt-8 space-y-5 text-lg text-body leading-relaxed">
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-14 lg:gap-24 items-start">
+            <Reveal>
+              <SectionHeader
+                index="01"
+                eyebrow="Origin"
+                title="Mid-market employers were the most exposed and the least served."
+              />
+              <div className="mt-8 space-y-5 text-lg text-body leading-relaxed max-w-2xl">
                 <p>
                   Federal compliance has always been complex for the
                   mid-market. Employers with 5–500 employees carry the same
@@ -135,12 +145,12 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Then AI and biometrics changed the stakes. EEOC&apos;s
-                  2024–2028 strategic enforcement plan named AI hiring tools
-                  as a priority. FCRA penalties are now being applied to
-                  algorithmic background checks. Class-action settlements
-                  over biometric exposure run into the hundreds of millions.
-                  The federal frameworks employers were ignoring became the
-                  federal frameworks they couldn&apos;t afford to.
+                  2024–2028 strategic enforcement plan named AI hiring tools as
+                  a priority. FCRA penalties are now being applied to
+                  algorithmic background checks. Class-action settlements over
+                  biometric exposure run into the hundreds of millions. The
+                  federal frameworks employers were ignoring became the federal
+                  frameworks they couldn&apos;t afford to.
                 </p>
                 <p>
                   We built Compli specifically for this moment. A federal
@@ -149,197 +159,199 @@ export default function AboutPage() {
                   before federal AI legislation passes in 2026 or 2027.
                 </p>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="space-y-4">
-              {whyCards.map((c) => (
-                <div
+            <div>
+              {whyCards.map((c, i) => (
+                <Reveal
                   key={c.number}
-                  className="bg-surface border-l-4 border-[color:var(--color-accent)] pl-6 py-5 rounded-r-lg"
+                  delay={i * 90}
+                  className="border-t border-line-strong py-7 grid grid-cols-[3.5rem_1fr] gap-4"
                 >
-                  <div className="text-xs font-semibold tracking-widest text-[color:var(--color-accent)]">
+                  <span className="mono-label text-accent" aria-hidden="true">
                     {c.number}
+                  </span>
+                  <div>
+                    <h3 className="font-serif text-xl text-ink tracking-tight">
+                      {c.title}
+                    </h3>
+                    <p className="mt-2.5 text-[0.95rem] text-body leading-relaxed">
+                      {c.body}
+                    </p>
                   </div>
-                  <h3 className="mt-1 text-lg font-semibold text-ink leading-tight">
-                    {c.title}
-                  </h3>
-                  <p className="mt-2 text-body leading-relaxed">{c.body}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* WHO WE SERVE */}
-      <section className="bg-surface py-20 md:py-28">
+      {/* ── 02 · WHO WE SERVE ─────────────────────────────── */}
+      <section className="bg-white border-y border-line py-24 lg:py-32">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <Eyebrow>Who we serve</Eyebrow>
-            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              Employers with federal obligations and no compliance team to
-              handle them.
-            </h2>
-            <p className="mt-6 text-lg text-body leading-relaxed">
-              American employers from 5 to 500 employees carry full federal
-              compliance obligations. Compli is built for that gap — and for
-              the partners who advise them.
-            </p>
-          </div>
+          <Reveal>
+            <SectionHeader
+              index="02"
+              eyebrow="Who we serve"
+              title="Employers with federal obligations and no compliance team."
+              lede="American employers from 5 to 500 employees carry full federal compliance obligations. Compli is built for that gap — and for the partners who advise them."
+            />
+          </Reveal>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8">
-            {audiences.map((a) => (
-              <div
+          <div className="mt-14 grid md:grid-cols-3 border-t border-l border-line-strong">
+            {audiences.map((a, i) => (
+              <Reveal
                 key={a.heading}
-                className="bg-white border border-line rounded-2xl p-8"
+                delay={i * 90}
+                className="border-b border-r border-line-strong bg-paper p-7 lg:p-8"
               >
-                <h3 className="text-xl font-semibold text-ink leading-tight">
+                <span className="mono-label text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 font-serif text-xl text-ink tracking-tight">
                   {a.heading}
                 </h3>
-                <p className="mt-4 text-body leading-relaxed">{a.body}</p>
-              </div>
+                <p className="mt-3 text-[0.95rem] text-body leading-relaxed">
+                  {a.body}
+                </p>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* WHAT COMPLI IS — ARCHITECTURE */}
-      <section className="bg-white py-20 md:py-28">
+      {/* ── 03 · ARCHITECTURE ─────────────────────────────── */}
+      <section className="bg-paper py-24 lg:py-32">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <Eyebrow>Architecture</Eyebrow>
-            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              A federal foundation. Ahead on AI &amp; Biometrics.
-            </h2>
-            <p className="mt-6 text-lg text-body leading-relaxed">
-              Compli is two things working together. The federal benefits and
-              labor backbone employers already need. And the AI &amp;
-              Biometrics work no one in the mid-market has productized.
-            </p>
-          </div>
+          <Reveal>
+            <SectionHeader
+              index="03"
+              eyebrow="Architecture"
+              title="A federal foundation. Ahead on AI & Biometrics."
+              lede="Compli is two things working together. The federal benefits and labor backbone employers already need. And the AI & Biometrics work no one in the mid-market has productized."
+            />
+          </Reveal>
 
-          <div className="mt-16 grid md:grid-cols-2 gap-8">
-            {/* Federal benefits and labor backbone */}
-            <div className="bg-surface border border-line rounded-2xl p-8 md:p-10">
-              <div className="text-xs font-semibold uppercase tracking-widest text-muted">
+          <div className="mt-14 grid md:grid-cols-2 border border-line-strong">
+            {/* backbone */}
+            <Reveal className="bg-white p-8 lg:p-10 border-b md:border-b-0 md:border-r border-line-strong">
+              <span className="mono-label text-faint">
                 The reliable foundation
-              </div>
-              <h3 className="mt-3 text-2xl font-semibold text-ink leading-tight">
+              </span>
+              <h3 className="mt-3 font-serif text-2xl text-ink tracking-tight">
                 Federal benefits and labor backbone
               </h3>
               <p className="mt-4 text-body leading-relaxed">
                 ERISA, ACA, COBRA, FMLA, HIPAA, OSHA, FLSA, FCRA. Form 5500
                 filings, Summary Plan Descriptions, COBRA election windows,
-                FMLA tracking, ACA 1094/1095 reporting. The federal
-                regulatory work that mid-market employers have always needed
-                and rarely had a real platform for.
+                FMLA tracking, ACA 1094/1095 reporting. The federal regulatory
+                work that mid-market employers have always needed and rarely
+                had a real platform for.
               </p>
-              <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-body">
+              <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2.5">
                 {backbonePrograms.map((p) => (
-                  <li key={p} className="flex items-start gap-2">
-                    <span className="text-green mt-1.5 leading-none">·</span>
+                  <li key={p} className="flex items-start gap-2.5 text-sm text-ink">
+                    <Tick className="mt-0.5 shrink-0 text-accent" />
                     <span>{p}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
 
-            {/* AI & Biometrics Suite, Federal Edition */}
-            <div className="bg-navy text-white rounded-2xl p-8 md:p-10">
-              <div className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                Built early
-              </div>
-              <h3 className="mt-3 text-2xl font-semibold text-white leading-tight">
+            {/* A&B */}
+            <Reveal delay={100} className="bg-ink p-8 lg:p-10">
+              <span className="mono-label text-accent-bright">Built early</span>
+              <h3 className="mt-3 font-serif text-2xl text-white tracking-tight">
                 AI &amp; Biometrics Suite, Federal Edition
               </h3>
-              <p className="mt-4 text-white/85 leading-relaxed">
+              <p className="mt-4 text-white/75 leading-relaxed">
                 Compli&apos;s AI &amp; Biometrics work covers the federal
                 frameworks driving real enforcement. EEOC AI hiring guidance.
                 FCRA applied to algorithmic screening. NIST AI RMF
                 documentation. The federal AI law expected in 2026–2027 will
                 land on a platform that&apos;s already in market.
               </p>
-              <ul className="mt-6 space-y-2 text-sm text-white/90">
+              <ul className="mt-6 space-y-2.5">
                 {launchModules.map((m) => (
-                  <li key={m.code} className="flex items-start gap-3">
-                    <span className="font-mono text-[color:var(--color-accent)] font-semibold tracking-wide whitespace-nowrap">
+                  <li key={m.code} className="flex items-baseline gap-3 text-sm">
+                    <span className="font-mono text-[0.72rem] font-semibold tracking-wide text-accent-bright whitespace-nowrap w-14 shrink-0">
                       {m.code}
                     </span>
-                    <span>— {m.name}</span>
+                    <span className="text-white/85">{m.name}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </Container>
       </section>
 
-      {/* HOW WE WORK / COMMITMENTS */}
-      <section className="bg-surface py-20 md:py-28">
+      {/* ── 04 · COMMITMENTS ──────────────────────────────── */}
+      <section className="bg-white border-y border-line py-24 lg:py-32">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <Eyebrow>How we work</Eyebrow>
-            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-ink tracking-tight leading-tight">
-              Three commitments.
-            </h2>
-          </div>
+          <Reveal>
+            <SectionHeader
+              index="04"
+              eyebrow="How we work"
+              title="Three commitments."
+            />
+          </Reveal>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-6 lg:gap-8">
-            {commitments.map((c) => (
-              <div
+          <div className="mt-4">
+            {commitments.map((c, i) => (
+              <Reveal
                 key={c.heading}
-                className="bg-white border border-line rounded-2xl p-8"
+                delay={i * 90}
+                className="border-b border-line-strong py-8 grid lg:grid-cols-[3.5rem_1fr_1.6fr] gap-4 lg:gap-8"
               >
-                <h3 className="text-xl font-semibold text-ink leading-tight">
+                <span className="mono-label text-accent" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-serif text-2xl text-ink tracking-tight leading-snug">
                   {c.heading}
                 </h3>
-                <p className="mt-4 text-body leading-relaxed">{c.body}</p>
-              </div>
+                <p className="text-body leading-relaxed">{c.body}</p>
+              </Reveal>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark py-20 md:py-28 overflow-hidden">
+      {/* ── FINAL CTA ─────────────────────────────────────── */}
+      <section className="bg-ink py-24 lg:py-28">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <Eyebrow>Get started</Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl md:text-6xl text-white leading-[1.1] tracking-tight">
-              Stay Compliant. Stay Protected.
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-4">
+              <span className="mono-label text-accent-bright">Get started</span>
+              <span className="h-px w-10 bg-white/20" aria-hidden="true" />
+              <span className="mono-label text-white/50">Summer 2026</span>
+            </div>
+            <h2 className="display mt-7 text-5xl md:text-6xl text-white">
+              Stay Compliant.
+              <br />
+              Stay Protected.
             </h2>
-            <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-              Federal AI &amp; Biometrics compliance launches Summer 2026.
-              Get on the early-notification list, or talk to us about
-              partnering.
+            <p className="mt-7 text-lg lg:text-xl text-white/75 leading-relaxed max-w-2xl">
+              Federal AI &amp; Biometrics compliance launches Summer 2026. Get
+              on the early-notification list, or talk to us about partnering.
             </p>
-
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                href="/get-started"
-                variant="primary"
-                className="px-8 py-4"
-              >
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Button href="/get-started" variant="primary">
                 Get notified at launch
               </Button>
-              <Button
-                href="/become-a-partner"
-                variant="secondary"
-                className="px-8 py-4 !border-white/30 !text-white hover:!bg-white hover:!text-navy"
-              >
+              <Button href="/become-a-partner" variant="outline-light">
                 Become a partner
               </Button>
             </div>
-
-            <div className="mt-10 text-sm text-white/60">
+            <p className="mt-10 text-sm text-white/60">
               Questions?{" "}
               <Link
                 href="/contact"
-                className="text-white underline hover:text-green transition-colors"
+                className="text-white underline underline-offset-4 hover:text-accent-bright transition-colors"
               >
                 Get in touch
               </Link>
-            </div>
+            </p>
           </div>
         </Container>
       </section>

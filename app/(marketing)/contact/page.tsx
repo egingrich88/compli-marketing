@@ -11,39 +11,35 @@ export const metadata: Metadata = {
   },
 };
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="text-sm font-semibold uppercase tracking-wider text-green">
-      {children}
-    </div>
-  );
-}
-
 export default function ContactPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative bg-gradient-to-br from-navy via-navy to-navy-dark overflow-hidden">
+      {/* ── HERO ──────────────────────────────────────────── */}
+      <section className="bg-ink">
         <Container>
-          <div className="py-24 md:py-32">
-            <div className="max-w-3xl mx-auto text-center">
-              <Eyebrow>Contact</Eyebrow>
-              <h1 className="mt-5 font-serif text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] tracking-tight">
-                Get in touch.
-              </h1>
-              <p className="mt-6 text-lg lg:text-xl text-white/80 leading-relaxed">
-                Questions about the platform, partnership inquiries, or press
-                — we&apos;ll get back to you within two business days.
-              </p>
+          <div className="py-20 lg:py-24">
+            <div className="flex items-center gap-4">
+              <span className="mono-label text-accent-bright">Contact</span>
+              <span className="h-px w-10 bg-white/20" aria-hidden="true" />
+              <span className="mono-label text-white/50">
+                Two business days
+              </span>
             </div>
+            <h1 className="display mt-7 text-5xl sm:text-6xl lg:text-7xl text-white">
+              Get in touch.
+            </h1>
+            <p className="mt-7 text-lg lg:text-xl text-white/75 leading-relaxed max-w-xl">
+              Questions about the platform, partnership inquiries, or press —
+              we&apos;ll get back to you within two business days.
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* FORM */}
-      <section className="bg-white py-20 md:py-28">
+      {/* ── FORM ──────────────────────────────────────────── */}
+      <section className="bg-paper py-20 lg:py-28">
         <Container>
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl">
             <ContactForm />
           </div>
         </Container>

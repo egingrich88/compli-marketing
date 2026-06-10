@@ -49,12 +49,12 @@ const proseClasses = [
   "[&_h2]:mt-12 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-ink [&_h2]:tracking-tight",
   "[&_h3]:mt-8 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-ink",
   "[&_p]:mt-5",
-  "[&_a]:text-green [&_a]:underline [&_a:hover]:text-green-dark",
+  "[&_a]:text-accent [&_a]:underline [&_a:hover]:text-accent-deep",
   "[&_ul]:mt-5 [&_ul]:list-disc [&_ul]:pl-6",
   "[&_ol]:mt-5 [&_ol]:list-decimal [&_ol]:pl-6",
   "[&_li]:mt-2",
-  "[&_blockquote]:mt-5 [&_blockquote]:border-l-4 [&_blockquote]:border-green [&_blockquote]:pl-5 [&_blockquote]:italic",
-  "[&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm",
+  "[&_blockquote]:mt-5 [&_blockquote]:border-l-2 [&_blockquote]:border-accent [&_blockquote]:pl-5 [&_blockquote]:italic",
+  "[&_code]:bg-paper-2 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded-[2px] [&_code]:font-mono [&_code]:text-sm",
 ].join(" ");
 
 export default async function ArticlePage({
@@ -74,23 +74,23 @@ export default async function ArticlePage({
   });
 
   return (
-    <article className="bg-white">
+    <article className="bg-paper">
       <Container>
         <div className="max-w-2xl mx-auto py-20 md:py-28">
           <header>
             <time
               dateTime={article.date.toISOString()}
-              className="text-xs font-semibold uppercase tracking-wider text-muted"
+              className="mono-label !text-[0.65rem] text-faint"
             >
               {formatDate(article.date)}
             </time>
-            <h1 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.1] tracking-tight">
+            <h1 className="display mt-5 text-4xl md:text-5xl lg:text-6xl text-ink">
               {article.title}
             </h1>
             <p className="mt-6 text-lg lg:text-xl text-body leading-relaxed">
               {article.description}
             </p>
-            <p className="mt-6 text-sm text-muted">By {article.author}</p>
+            <p className="mono-label mt-6 !text-[0.65rem] text-faint">By {article.author}</p>
           </header>
 
           <div className={`mt-12 ${proseClasses}`}>{content}</div>
@@ -98,7 +98,7 @@ export default async function ArticlePage({
           <footer className="mt-16 pt-12 border-t border-line">
             <Link
               href="/insights"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-green hover:text-green-dark transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-deep transition-colors"
             >
               <svg
                 className="w-4 h-4"
@@ -118,7 +118,7 @@ export default async function ArticlePage({
               Questions about this topic?{" "}
               <Link
                 href="/contact"
-                className="text-green hover:text-green-dark font-semibold"
+                className="text-accent hover:text-accent-deep font-semibold"
               >
                 Get in touch.
               </Link>
